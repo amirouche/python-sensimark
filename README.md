@@ -27,10 +27,7 @@ Society ~ 0.4
 
 # Getting started
 
-- ``pip3 install scikit-learn gensim``
-- ``wget http://ftp.acc.umu.se/mirror/wikimedia.org/dumps/enwiki/20180301/enwiki-20180301-category.sql.gz``
-- ``wget http://ftp.acc.umu.se/mirror/wikimedia.org/dumps/enwiki/20180301/enwiki-20180301-categorylinks.sql.gz``
-- ``wget http://ftp.acc.umu.se/mirror/wikimedia.org/other/static_html_dumps/current/en/wikipedia-en-html.tar.7z``
+TBD
 
 # CLI
 
