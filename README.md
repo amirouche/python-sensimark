@@ -9,7 +9,7 @@ Given a text it return dictionary made of wikipedia categories, e.g.:
 ```python
 out = wikimark("""Peter Hintjens wrote about the relation between technology and culture.
 Without using a scientifical tone of state-of-the-art review of the anthroposcene antropology,
-he gives a fair amount of food for thought. According to Hintjens technology is doomed to
+he gives a fair amount of food for thought. According to Hintjens, technology is doomed to
 become cheap. As matter of fact, intelligence tools will become more and more accessible which
 will trigger a revolution to rebalance forces in society.""")
 
