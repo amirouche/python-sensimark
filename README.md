@@ -1,5 +1,7 @@
 # wikimark -- get a sens of it
 
+**work in progress**
+
 wikimark goal is to give you an idea of what the text is about.
 
 # What?
