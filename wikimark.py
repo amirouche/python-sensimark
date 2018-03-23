@@ -1,18 +1,20 @@
 #!/usr/bin/env python3
 """Usage:
-  wikimark.py download OUTPUT
+  wikimark.py collect OUTPUT
   wikimark.py process INPUT
   wikimark.py guess INPUT
 """
 import json
 import re
+from pathlib import Path
 
 import requests
 
 from lxml import html
 from docopt import docopt
 
-INPUT = 'https://en.wikipedia.org/api/rest_v1/page/html/Wikipedia%3AVital_articles'
+REST_API = 'https://en.wikipedia.org/api/rest_v1/page/html/'
+INPUT = REST_API + 'Wikipedia%3AVital_articles'
 
 
 REGEX_TITLE = re.compile(r'[^(]+')
@@ -44,17 +46,20 @@ def extract_category(section):
     title = header.xpath('./text()')[0]
     title = REGEX_TITLE.match(title).group().strip()
     out['title'] = title
-    out['subcategory'] = list()
+    out['subcategories'] = list()
     for h3 in div.xpath('.//h3'):
         # for mathematics, the above xpath doesn't work skip it, see
         # the talk page for more info
         section = h3.getparent()
         subcategory = extract_subcategory(section)
-        out['subcategory'].append(subcategory)
+        out['subcategories'].append(subcategory)
     return out
 
 
-def download(output):
+def get_specification():
+    """Get vital categories with references to the articles
+
+    It returns a dict of dict"""
     response = requests.get(INPUT)
     xml = html.fromstring(response.text)
     section = xml.xpath('body/section[@data-mw-section-id=1]')[0]
@@ -65,9 +70,28 @@ def download(output):
     return categories
 
 
+def collect(output):
+    specification = get_specification()
+    output = Path(output)
+    # write specification
+    with (output / 'specification.json').open('w') as f:
+        f.write(json.dumps(specification, indent=4, sort_keys=True))
+    # create directories, download and preprocess articles
+    for category in specification:
+        directory = output / category['title']
+        directory.mkdir(parents=True, exist_ok=True)
+        for subcategory in category['subcategories']:
+            subdirectory = directory / subcategory['title']
+            subdirectory.mkdir(parents=True, exist_ok=True)
+            for article in subcategory['articles']:
+                filepath = subdirectory / article
+                with filepath.open('w') as f:
+                    print('Downloading {}'.format(filepath))
+                    response = requests.get(REST_API + article)
+                    f.write(response.text)
+
+
 if __name__ == '__main__':
     args = docopt(__doc__)
-    if args.get('download'):
-        print(json.dumps(download(args.get('OUTPUT')), indent=4, sort_keys=True))
-    else:
-        pass
+    if args.get('collect'):
+        collect(args.get('OUTPUT'))
