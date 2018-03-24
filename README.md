@@ -15,7 +15,7 @@ he gives a fair amount of food for thought. According to Hintjens, technology is
 become cheap. As matter of fact, intelligence tools will become more and more accessible which
 will trigger a revolution to rebalance forces in society.""")
 
-for category, score in wikimark:
+for category, score in out:
     print('{} ~ {}'.format(category, score))
 ```
 
