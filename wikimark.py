@@ -158,8 +158,7 @@ def regression(input, doc2vec):
 def process(input):
     input = Path(input)
     print('Doc2Vec preprocessing')
-    # doc2vec = make_dov2vec_model(input)
-    doc2vec = Doc2Vec.load(str(Path(input) / 'model.doc2vec.gz'))
+    doc2vec = make_dov2vec_model(input)
     print('Regression model computation')
     regression(input, doc2vec)
 
