@@ -7,10 +7,13 @@
 import json
 import pickle
 import re
+from collections import Counter
+from collections import OrderedDict
 from pathlib import Path
 from string import punctuation
 
 import requests
+from asciitree import LeftAligned
 from docopt import docopt
 from gensim.models.doc2vec import TaggedDocument
 from gensim.models.doc2vec import Doc2Vec
@@ -168,15 +171,41 @@ def guess(input, url):
     tokens = tokenize(string)
     model = Doc2Vec.load(str(input / 'model.doc2vec.gz'))
     vector = model.infer_vector(tokens)
-    out = list()
+    subcategories = list()
     for filepath in input.glob('./*/*/*.model'):
         with filepath.open('rb') as f:
             model = pickle.load(f)
         prediction = model.predict([vector])[0]
-        out.append((filepath.parent, prediction))
-    out.sort(key=lambda x: x[1])
-    for subcategory, prediction in out:
-        print('{} ~ {}'.format(subcategory, prediction))
+        subcategories.append((filepath.parent, prediction))
+    subcategories.sort(key=lambda x: x[1], reverse=True)
+    # compute categories prediction
+    categories = Counter()
+    for category in input.glob('./*/'):
+        # skip anything that is not a directory
+        if not category.is_dir():
+            continue
+        # compute mean score for the category
+        count = 0
+        for subcategory, prediction in subcategories:
+            if subcategory.parent == category:
+                count += 1
+                categories[category] += prediction
+        if count:
+            mean = categories[category] / count
+            categories[category] = mean
+        else:
+            del categories[category]
+    # build and print tree
+    tree = OrderedDict()
+    for category, prediction in categories.most_common(len(categories)):
+        name = '{} ~ {}'.format(category.name, prediction)
+        children = OrderedDict()
+        for subcategory, prediction in subcategories:
+            if subcategory.parent == category:
+                children['{} ~ {}'.format(subcategory.name, prediction)] = dict()
+        tree[name] = children
+    print(LeftAligned()(dict(similarity=tree)))
+
 
 
 if __name__ == '__main__':

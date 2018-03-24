@@ -13,6 +13,7 @@ requests = "*"
 jupyter = "*"
 gensim = "*"
 scikit-learn = "*"
+asciitree = "*"
 
 
 [dev-packages]
