@@ -30,6 +30,8 @@ Society ~ 0.4
 # Getting started
 
 ```bash
+$ pipenv shell
+$ pipenv install
 $ mkdir build
 $ wikimark.py collect build
 $ wikimark.py process build
