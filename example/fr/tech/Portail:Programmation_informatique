@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="fr" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Portail:Programmation informatique — Wikipédia</title>
+<script>document.documentElement.className = document.documentElement.className.replace( /(^|\s)client-nojs(\s|$)/, "$1client-js$2" );</script>
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgCanonicalNamespace":"Portail","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":100,"wgPageName":"Portail:Programmation_informatique","wgTitle":"Programmation informatique","wgCurRevisionId":144900387,"wgRevisionId":144900387,"wgArticleId":2984101,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Portail comptant entre 1 000 et 9 999 articles","Page de portail ou de projet thématique","Portail:Programmation informatique"],"wgBreakFrames":false,"wgPageContentLanguage":"fr","wgPageContentModel":"wikitext","wgSeparatorTransformTable":[",\t."," \t,"],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre"],"wgMonthNamesShort":["","janv.","fév.","mars","avr.","mai","juin","juill.","août","sept.","oct.","nov.","déc."],"wgRelevantPageName":"Portail:Programmation_informatique","wgRelevantArticleId":2984101,"wgRequestId":"WraEeQpAMFoAAJmVYNYAAABB","wgIsProbablyEditable":true,"wgRelevantPageIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":[],"wgBetaFeaturesFeatures":[],"wgMediaViewerOnClick":true,"wgMediaViewerEnabledByDefault":true,"wgPopupsShouldSendModuleToUser":true,"wgPopupsConflictsWithNavPopupGadget":false,"wgVisualEditor":{"pageLanguageCode":"fr","pageLanguageDir":"ltr","pageVariantFallbacks":"fr","usePageImages":true,"usePageDescriptions":true},"wgPreferredVariant":"fr","wgMFExpandAllSectionsUserOption":true,"wgMFEnableFontChanger":true,"wgMFDisplayWikibaseDescriptions":{"search":true,"nearby":true,"watchlist":true,"tagline":true},"wgRelatedArticles":null,"wgRelatedArticlesUseCirrusSearch":true,"wgRelatedArticlesOnlyUseCirrusSearch":false,"wgULSCurrentAutonym":"français","wgNoticeProject":"wikipedia","wgCentralNoticeCookiesToDelete":[],"wgCentralNoticeCategoriesUsingLegacy":["Fundraising","fundraising"],"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}","wgWikibaseItemId":"Q10729459","wgScoreNoteLanguages":{"arabic":"العربية","catalan":"català","deutsch":"Deutsch","english":"English","espanol":"español","italiano":"italiano","nederlands":"Nederlands","norsk":"norsk","portugues":"português","suomi":"suomi","svenska":"svenska","vlaams":"West-Vlams"},"wgScoreDefaultNoteLanguage":"nederlands","wgCentralAuthMobileDomain":false,"wgCodeMirrorEnabled":false,"wgVisualEditorToolbarScrollOffset":0,"wgVisualEditorUnsupportedEditParams":["undo","undoafter","veswitched"],"wgEditSubmitButtonLabelPublish":true});mw.loader.state({"ext.globalCssJs.user.styles":"ready","ext.globalCssJs.site.styles":"ready","site.styles":"ready","noscript":"ready","user.styles":"ready","user":"ready","user.options":"loading","user.tokens":"loading","wikibase.client.init":"ready","ext.visualEditor.desktopArticleTarget.noscript":"ready","ext.uls.interlanguage":"ready","ext.wikimediaBadges":"ready","mediawiki.legacy.shared":"ready","mediawiki.legacy.commonPrint":"ready","mediawiki.sectionAnchor":"ready","mediawiki.skinning.interface":"ready","skins.vector.styles":"ready","ext.globalCssJs.user":"ready","ext.globalCssJs.site":"ready"});mw.loader.implement("user.options@1dpodri",function($,jQuery,require,module){/*@nomin*/mw.user.options.set({"variant":"fr"});
+});mw.loader.implement("user.tokens@1dqfd7l",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});mw.loader.load(["site","mediawiki.page.startup","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest","ext.gadget.ArchiveLinks","ext.gadget.MonobookToolbarStandard","ext.gadget.ExternalSearch","ext.gadget.Wdsearch","ext.centralauth.centralautologin","mmv.head","mmv.bootstrap.autostart","ext.popups","ext.visualEditor.desktopArticleTarget.init","ext.visualEditor.targetLoader","ext.eventLogging.subscriber","ext.wikimediaEvents","ext.navigationTiming","ext.uls.eventlogger","ext.uls.init","ext.uls.compactlinks","ext.uls.interface","ext.3d","ext.centralNotice.geoIP","ext.centralNotice.startUp","skins.vector.js"]);});</script>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=fr&amp;modules=ext.uls.interlanguage%7Cext.visualEditor.desktopArticleTarget.noscript%7Cext.wikimediaBadges%7Cmediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.interface%7Cskins.vector.styles%7Cwikibase.client.init&amp;only=styles&amp;skin=vector"/>
+<script async="" src="/w/load.php?debug=false&amp;lang=fr&amp;modules=startup&amp;only=scripts&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=fr&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.31.0-wmf.26"/>
+<meta name="referrer" content="origin"/>
+<meta name="referrer" content="origin-when-crossorigin"/>
+<meta name="referrer" content="origin-when-cross-origin"/>
+<link rel="alternate" type="application/x-wiki" title="Modifier" href="/w/index.php?title=Portail:Programmation_informatique&amp;action=edit"/>
+<link rel="edit" title="Modifier" href="/w/index.php?title=Portail:Programmation_informatique&amp;action=edit"/>
+<link rel="apple-touch-icon" href="/static/apple-touch/wikipedia.png"/>
+<link rel="shortcut icon" href="/static/favicon/wikipedia.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipédia (fr)"/>
+<link rel="EditURI" type="application/rsd+xml" href="//fr.wikipedia.org/w/api.php?action=rsd"/>
+<link rel="license" href="//creativecommons.org/licenses/by-sa/3.0/"/>
+<link rel="alternate" type="application/atom+xml" title="Flux Atom de Wikipédia" href="/w/index.php?title=Sp%C3%A9cial:Modifications_r%C3%A9centes&amp;feed=atom"/>
+<link rel="canonical" href="https://fr.wikipedia.org/wiki/Portail:Programmation_informatique"/>
+<link rel="dns-prefetch" href="//login.wikimedia.org"/>
+<link rel="dns-prefetch" href="//meta.wikimedia.org" />
+<!--[if lt IE 9]><script src="/w/load.php?debug=false&amp;lang=fr&amp;modules=html5shiv&amp;only=scripts&amp;skin=vector&amp;sync=1"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-100 ns-subject page-Portail_Programmation_informatique rootpage-Portail_Programmation_informatique skin-vector action-view">		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+			<div id="siteNotice" class="mw-body-content"><!-- CentralNotice --></div><div class="mw-indicators mw-body-content">
+<div id="mw-indicator-descrition-icone" class="mw-indicator"><i><b>Accès au projet et à son bistro</b></i>&#160;:</div>
+<div id="mw-indicator-son-projet" class="mw-indicator"><a href="//fr.wikipedia.org/wiki/Projet:Programmation_informatique" title="Le projet «&#160;Programmation informatique&#160;» lié à ce portail"><img alt="Le projet «&#160;Programmation informatique&#160;» lié à ce portail" src="//upload.wikimedia.org/wikipedia/commons/thumb/8/83/Circle-icons-tools.svg/20px-Circle-icons-tools.svg.png" width="20" height="20" class="noviewer" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/8/83/Circle-icons-tools.svg/30px-Circle-icons-tools.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/8/83/Circle-icons-tools.svg/40px-Circle-icons-tools.svg.png 2x" data-file-width="512" data-file-height="512" /></a></div>
+<div id="mw-indicator-son-projet-bistro" class="mw-indicator"><a href="//fr.wikipedia.org/wiki/Discussion_Projet:Programmation_informatique" title="Bistro du projet «&#160;Programmation informatique&#160;» lié à ce portail"><img alt="Bistro du projet «&#160;Programmation informatique&#160;» lié à ce portail" src="//upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Circle-icons-quote.svg/23px-Circle-icons-quote.svg.png" width="23" height="23" class="noviewer" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Circle-icons-quote.svg/35px-Circle-icons-quote.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Circle-icons-quote.svg/46px-Circle-icons-quote.svg.png 2x" data-file-width="512" data-file-height="512" /></a></div>
+</div>
+<h1 id="firstHeading" class="firstHeading" lang="fr">Portail:Programmation informatique</h1>			<div id="bodyContent" class="mw-body-content">
+				<div id="siteSub" class="noprint">Une page de Wikipédia, l'encyclopédie libre.</div>				<div id="contentSub"></div>
+								<div id="jump-to-nav" class="mw-jump">
+					Aller à :					<a href="#mw-head">navigation</a>, 					<a href="#p-search">rechercher</a>
+				</div>
+				<div id="mw-content-text" lang="fr" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div style="background-color: #2f4f4f; padding: .5em;">
+<div style="color: #f5deb3; font-size: x-large; font-weight: 600; text-align: center; font-family: monospace;">Introduction<span style="background-color: #da70d6;">&#160;</span></div>
+</div>
+<div style="background-color: #f5deb3; border: 1px solid #2f4f4f; border-top: none; padding: .5em;">
+<p>La <a href="/wiki/Programmation_informatique" title="Programmation informatique">programmation informatique</a> est l'ensemble des activités qui permettent l'écriture des <a href="/wiki/Programme_informatique" title="Programme informatique">programmes informatiques</a>. C'est une étape importante de la <a href="/wiki/Conception_de_logiciel" title="Conception de logiciel">conception de logiciel</a> et de matériel.</p>
+<p>Pour écrire le résultat de cette activité, on utilise un <a href="/wiki/Langage_de_programmation" title="Langage de programmation">langage de programmation</a>, un <a href="/wiki/Code" class="mw-disambig" title="Code">code</a> de <a href="/wiki/Communication" title="Communication">communication</a> permettant à un être humain de dialoguer avec une machine en lui soumettant des instructions et en analysant les données matérielles fournies par le système, généralement un <a href="/wiki/Ordinateur" title="Ordinateur">ordinateur</a>.</p>
+<p><i><b><a href="/wiki/Cat%C3%A9gorie:Portail:Programmation_informatique/Articles_li%C3%A9s" title="Catégorie:Portail:Programmation informatique/Articles liés">1&#160;529&#160;articles</a></b></i> de Wikipédia sont actuellement consacrés à la programmation informatique<i>.</i></p>
+<div align="right" style="font-size: xx-small;"><a href="/wiki/Portail:Programmation_informatique/En-t%C3%AAte" title="Portail:Programmation informatique/En-tête">Modifier</a></div>
+</div>
+<p><br /></p>
+<div style="display: flex; flex-direction: row; flex-wrap: wrap;">
+<div style="flex: 1; margin-right: .5em; flex-basis: 30em;">
+<div style="background-color: #2f4f4f; padding: .5em;">
+<div style="color: #f5deb3; font-size: x-large; font-weight: 600; text-align: center; font-family: monospace;">Lumière sur...<span style="background-color: #da70d6;">&#160;</span></div>
+</div>
+<div style="background-color: #f5deb3; border: 1px solid #2f4f4f; border-top: none; padding: .5em;">
+<div class="floatleft"><a href="/wiki/Fichier:Ruby-logo-notext.png" class="image"><img alt="Ruby-logo-notext.png" src="//upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Ruby-logo-notext.png/90px-Ruby-logo-notext.png" width="90" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Ruby-logo-notext.png/135px-Ruby-logo-notext.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Ruby-logo-notext.png/180px-Ruby-logo-notext.png 2x" data-file-width="331" data-file-height="119" /></a></div>
+<p>Le <b><a href="/wiki/Ruby" title="Ruby">Ruby</a></b> est un langage de programmation orienté objet. Le nom Ruby n'est pas un acronyme mais un jeu de mots sur <a href="/wiki/Perl_(langage)" title="Perl (langage)">Perl</a>. <a href="/wiki/Yukihiro_Matsumoto" title="Yukihiro Matsumoto">Yukihiro Matsumoto</a> est son créateur. Ne trouvant pas dans les langages de programmation déjà existants (dont Perl et <a href="/wiki/Python_(langage)" title="Python (langage)">Python</a>) de quoi le satisfaire (à préciser), il commença l'écriture en 1993 et publia une première version en 1995. Depuis, les versions se sont enchaînées, généralement pour Noël.</p>
+<p><br />
+<a href="/wiki/Ruby" title="Ruby">En savoir plus...</a></p>
+<div align="right" style="font-size: xx-small;"><a href="/wiki/Portail:Programmation_Informatique/Lumi%C3%A8re_sur..." title="Portail:Programmation Informatique/Lumière sur...">Modifier</a></div>
+</div>
+<p><br /></p>
+</div>
+<div style="flex: 1; margin-left: .5em; flex-basis: 30em;">
+<div style="background-color: #2f4f4f; padding: .5em;">
+<div style="color: #f5deb3; font-size: x-large; font-weight: 600; text-align: center; font-family: monospace;">Le saviez-vous&#160;?<span style="background-color: #da70d6;">&#160;</span></div>
+</div>
+<div style="background-color: #f5deb3; border: 1px solid #2f4f4f; border-top: none; padding: .5em;">
+<ul>
+<li>Le langage de programmation utilisé dans les applications <a href="/wiki/Microsoft_Office" title="Microsoft Office">Microsoft Office</a> est le <a href="/wiki/Visual_Basic" title="Visual Basic">Visual Basic</a>. Certains s’en servent pour créer des <a href="/wiki/Macros" class="mw-redirect mw-disambig" title="Macros">macros</a>.</li>
+<li>Le premier <a href="/wiki/Programmation_orient%C3%A9e_objet" title="Programmation orientée objet">langage orienté objet</a> a été inventé en <a href="/wiki/1960" title="1960">1960</a>, il s’appelle <a href="/wiki/Simula" title="Simula">Simula</a> mais l’«&#160;orienté objet&#160;» fut vraiment popularisé par <a href="/wiki/Smalltalk" title="Smalltalk">Smalltalk</a> en 1980. L'orienté objet est très utilisé aujourd'hui, notamment grâce au <a href="/wiki/C%2B%2B" title="C++">C++</a>, au <a href="/wiki/C_sharp" title="C sharp">C#</a>, à <a href="/wiki/Python_(langage)" title="Python (langage)">Python</a>, à <a href="/wiki/PHP" title="PHP">PHP</a> ou bien à <a href="/wiki/Java_(langage)" title="Java (langage)">Java</a>.</li>
+<li>La première version du <a href="/wiki/SGBD" class="mw-redirect" title="SGBD">SGBD</a> <a href="/wiki/Oracle_(base_de_donn%C3%A9es)" class="mw-redirect" title="Oracle (base de données)">Oracle</a> date de 1977.</li>
+<li>En nommant l'<a href="/wiki/Environnement_de_d%C3%A9veloppement_int%C3%A9gr%C3%A9" class="mw-redirect" title="Environnement de développement intégré">EDI</a> <a href="/wiki/Eclipse_(logiciel)" class="mw-redirect" title="Eclipse (logiciel)">Eclipse</a>, IBM visait principalement Visual Studio de Microsoft et non Sun Microsystems.</li>
+</ul>
+<div align="right" style="font-size: xx-small;"><a href="/wiki/Portail:Programmation_Informatique/Le_saviez-vous_%3F" title="Portail:Programmation Informatique/Le saviez-vous ?">Modifier</a></div>
+</div>
+<p><br /></p>
+</div>
+</div>
+<div style="background-color: #2f4f4f; padding: .5em;">
+<div style="color: #f5deb3; font-size: x-large; font-weight: 600; text-align: center; font-family: monospace;">Index thématique<span style="background-color: #da70d6;">&#160;</span></div>
+</div>
+<div style="background-color: #f5deb3; border: 1px solid #2f4f4f; border-top: none; padding: .5em;">
+<table style="background-color:transparent;">
+<tr>
+<td width="50%" valign="top">
+<table width="100%" border="0" cellspacing="0" cellpadding="5" style="background-color:transparent;">
+<tr>
+<td></td>
+<td>
+<p><b>Principes généraux</b><br />
+<a href="/wiki/Programmation_informatique" title="Programmation informatique">Programmation informatique</a>&#160;• <a href="/wiki/Langage_de_programmation" title="Langage de programmation">Langage de programmation</a>&#160;• <a href="/wiki/Conception_de_logiciel" title="Conception de logiciel">Conception de logiciel</a>&#160;• <a href="/wiki/Chronologie_des_langages_de_programmation" title="Chronologie des langages de programmation">Chronologie des langages de programmation</a>&#160;• <a href="/wiki/G%C3%A9nie_logiciel" title="Génie logiciel">Génie logiciel</a>&#160;• <a href="/wiki/Bogue_informatique" class="mw-redirect" title="Bogue informatique">Bogue</a>&#160;• <a href="/wiki/Paradigme_(programmation)" title="Paradigme (programmation)">Paradigme</a></p>
+</td>
+</tr>
+<tr>
+<td></td>
+<td>
+<p><b>Pratiques</b><br />
+<a href="/wiki/Algorithmique" title="Algorithmique">Algorithmique</a>&#160;• <a href="/wiki/Gestion_de_versions" title="Gestion de versions">Gestion de versions</a>&#160;• <a href="/wiki/Optimisation_du_code" class="mw-redirect" title="Optimisation du code">Optimisation du code</a>&#160;• <a href="/wiki/Programmation_syst%C3%A8me" title="Programmation système">Programmation système</a>&#160;• <a href="/wiki/Refactoring" class="mw-redirect" title="Refactoring">Refactoring</a>&#160;• <a href="/wiki/Test_(informatique)" title="Test (informatique)">Tests</a>&#160;• <a href="/wiki/Test_unitaire" title="Test unitaire">Test unitaire</a>&#160;• <a href="/wiki/Test_d%27int%C3%A9gration" title="Test d'intégration">Test d'intégration</a></p>
+</td>
+</tr>
+<tr>
+<td></td>
+<td>
+<p><b>Techniques de programmation</b><br />
+<a href="/wiki/Programmation_concurrente" title="Programmation concurrente">Concurrente</a>&#160;• <a href="/wiki/Programmation_d%C3%A9clarative" title="Programmation déclarative">Déclarative</a>&#160;• <a href="/wiki/Programmation_fonctionnelle" title="Programmation fonctionnelle">Fonctionnelle</a>&#160;• <a href="/wiki/Programmation_imp%C3%A9rative" title="Programmation impérative">Impérative</a>&#160;• <a href="/wiki/Programmation_logique" title="Programmation logique">Logique</a>&#160;• <a href="/wiki/Programmation_orient%C3%A9e_aspect" title="Programmation orientée aspect">Orientée aspect</a>&#160;• <a href="/wiki/Programmation_orient%C3%A9e_composant" title="Programmation orientée composant">Orientée composant</a>&#160;• <a href="/wiki/Programmation_orient%C3%A9e_objet" title="Programmation orientée objet">Orientée objet</a>&#160;• <a href="/wiki/Programmation_orient%C3%A9e_prototype" title="Programmation orientée prototype">Orientée prototype</a>&#160;• <a href="/wiki/Programmation_par_contraintes" title="Programmation par contraintes">Par contraintes</a>&#160;• <a href="/wiki/Programmation_par_contrat" title="Programmation par contrat">Par contrat</a>&#160;• <a href="/wiki/Programmation_par_intention" title="Programmation par intention">Par intention</a>&#160;• <a href="/wiki/Programmation_parall%C3%A8le" class="mw-redirect" title="Programmation parallèle">Parallèle</a>&#160;• <a href="/wiki/Programmation_proc%C3%A9durale" title="Programmation procédurale">Procédurale</a>&#160;• <a href="/wiki/Programmation_structur%C3%A9e" title="Programmation structurée">Structurée</a></p>
+</td>
+</tr>
+<tr>
+<td></td>
+<td>
+<p><b>Utilitaires de programmation informatique</b><br />
+<a href="/wiki/Compilateur" title="Compilateur">Compilateur</a>&#160;• <a href="/wiki/D%C3%A9bogueur" title="Débogueur">Débogueur</a>&#160;• <a href="/wiki/Analyse_statique_de_programmes" title="Analyse statique de programmes">Analyse statique de programmes</a></p>
+</td>
+</tr>
+</table>
+</td>
+<td width="50%" valign="top">
+<table width="100%" border="0" cellspacing="0" cellpadding="5" style="background-color:transparent;">
+<tr>
+<td></td>
+<td>
+<p><b>Principaux langages</b><br />
+<i><a href="/wiki/Programmation_orient%C3%A9e_objet" title="Programmation orientée objet">Langages à objets</a></i>&#160;: <a href="/wiki/C%2B%2B" title="C++">C++</a>&#160;• <a href="/wiki/Objective-C" title="Objective-C">Objective-C</a>&#160;• <a href="/wiki/C_sharp" title="C sharp">C#</a>&#160;• <a href="/wiki/D_(langage)" title="D (langage)">D</a>&#160;• <a href="/wiki/Delphi_(langage)" title="Delphi (langage)">Delphi</a>&#160;• <a href="/wiki/Eiffel_(langage)" title="Eiffel (langage)">Eiffel</a>&#160;• <a href="/wiki/Groovy_(langage)" title="Groovy (langage)">Groovy</a>&#160;• <a href="/wiki/Java_(langage)" title="Java (langage)">Java</a>&#160;• <a href="/wiki/Lisaac" title="Lisaac">Lisaac</a>&#160;• <a href="/wiki/Logo_(langage)" title="Logo (langage)">Logo</a>&#160;• <a href="/wiki/PHP" title="PHP">PHP</a>&#160;• <a href="/wiki/Python_(langage)" title="Python (langage)">Python</a>&#160;• <a href="/wiki/Ruby" title="Ruby">Ruby</a>&#160;• <a href="/wiki/Simula" title="Simula">Simula</a>&#160;• <a href="/wiki/Smalltalk" title="Smalltalk">Smalltalk</a>&#160;• <a href="/wiki/Swift_(langage_d%27Apple)" title="Swift (langage d'Apple)">Swift</a></p>
+<p><i><a href="/wiki/Programmation_imp%C3%A9rative" title="Programmation impérative">Langages impératifs</a></i>&#160;: <a href="/wiki/Algol_(langage)" title="Algol (langage)">Algol</a>&#160;• <a href="/wiki/APL_(langage)" title="APL (langage)">APL</a>&#160;• <a href="/wiki/Active_Server_Pages" title="Active Server Pages">ASP</a>&#160;• <a href="/wiki/Assembleur" title="Assembleur">Assembleur</a>&#160;• <a href="/wiki/BASIC" title="BASIC">BASIC</a>&#160;• <a href="/wiki/C_(langage)" title="C (langage)">C</a>&#160;• <a href="/wiki/COBOL" title="COBOL">COBOL</a>&#160;• <a href="/wiki/Natural" title="Natural">Natural</a>&#160;• <a href="/wiki/Forth_(langage)" title="Forth (langage)">Forth</a>&#160;• <a href="/wiki/Fortran" title="Fortran">Fortran</a>&#160;• <a href="/wiki/Limbo_(langage)" title="Limbo (langage)">Limbo</a>&#160;• <a href="/wiki/LSE_(langage_de_programmation)" class="mw-redirect" title="LSE (langage de programmation)">LSE</a>&#160;• <a href="/wiki/Pascal_(langage)" title="Pascal (langage)">Pascal</a>&#160;• <a href="/wiki/Perl_(langage)" title="Perl (langage)">Perl</a>&#160;• <a href="/wiki/PHP:_Hypertext_Preprocessor" class="mw-redirect" title="PHP: Hypertext Preprocessor">PHP</a>&#160;• <a href="/wiki/PL/I" title="PL/I">PL/I</a>&#160;• <a href="/wiki/Tool_Command_Language" title="Tool Command Language">TCL</a>&#160;• <a href="/wiki/Visual_Basic" title="Visual Basic">Visual Basic</a>&#160;• <a href="/wiki/WLangage" title="WLangage">WLangage</a></p>
+<p><i><a href="/wiki/Programmation_fonctionnelle" title="Programmation fonctionnelle">Langages fonctionnels</a></i>&#160;: <a href="/wiki/Haskell" title="Haskell">Haskell</a>&#160;• <a href="/wiki/ML_(langage)" title="ML (langage)">ML</a>/<a href="/wiki/Objective_Caml" class="mw-redirect" title="Objective Caml">OCaml</a>/<a href="/wiki/F_Sharp" class="mw-redirect" title="F Sharp">F#</a>&#160;• <a href="/wiki/Lisp" title="Lisp">Lisp</a>/<a href="/wiki/Common_Lisp" title="Common Lisp">Common Lisp</a>&#160;• <a href="/wiki/Scheme" title="Scheme">Scheme</a>&#160;• <a href="/wiki/Extensible_Stylesheet_Language_Transformations" title="Extensible Stylesheet Language Transformations">XSLT</a>&#160;• <a href="/wiki/Scala_(langage)" title="Scala (langage)">Scala</a></p>
+<p><i><a href="/wiki/Programmation_d%C3%A9clarative" title="Programmation déclarative">Langages déclaratifs</a></i>&#160;: <a href="/wiki/Clips_(langage)" title="Clips (langage)">Clips</a>&#160;• <a href="/wiki/Prolog" title="Prolog">Prolog</a></p>
+<p><i><a href="/wiki/Programmation_concurrente" title="Programmation concurrente">Langages concurrents</a></i>&#160;: <a href="/wiki/Ada_(langage)" title="Ada (langage)">Ada</a>&#160;• <a href="/wiki/Erlang_(langage)" title="Erlang (langage)">Erlang</a></p>
+<p><i>Divers</i>&#160;: <a href="/wiki/Forme_de_Backus-Naur" title="Forme de Backus-Naur">Forme de Backus-Naur</a>&#160;• <a href="/wiki/Langage_de_programmation_exotique" title="Langage de programmation exotique">Langage de programmation exotique</a></p>
+</td>
+</tr>
+<tr>
+<td></td>
+<td>
+<p><b><a href="/wiki/Cat%C3%A9gorie:Personnalit%C3%A9_en_langages_de_programmation" title="Catégorie:Personnalité en langages de programmation">Personnalités</a></b><br />
+<a href="/wiki/John_Backus" title="John Backus">John Backus</a>&#160;• <a href="/wiki/Haskell_Curry" title="Haskell Curry">Haskell Curry</a>&#160;• <a href="/wiki/Ole-Johan_Dahl" title="Ole-Johan Dahl">Ole-Johan Dahl</a>&#160;• <a href="/wiki/James_Gosling" title="James Gosling">James Gosling</a>&#160;• <a href="/wiki/Grace_Hopper" title="Grace Hopper">Grace Hopper</a>&#160;• <a href="/wiki/Jean_Ichbiah" title="Jean Ichbiah">Jean Ichbiah</a>&#160;• <a href="/wiki/Brian_Kernighan" title="Brian Kernighan">Brian Kernighan</a>&#160;• <a href="/wiki/Donald_Knuth" title="Donald Knuth">Donald Knuth</a>&#160;• <a href="/wiki/Rasmus_Lerdorf" title="Rasmus Lerdorf">Rasmus Lerdorf</a>&#160;• <a href="/wiki/Ada_Lovelace" title="Ada Lovelace">Ada Lovelace</a>&#160;• <a href="/wiki/Peter_Naur" title="Peter Naur">Peter Naur</a>&#160;• <a href="/wiki/John_Ousterhout" title="John Ousterhout">John Ousterhout</a>&#160;• <a href="/wiki/Dennis_Ritchie" title="Dennis Ritchie">Dennis Ritchie</a>&#160;• <a href="/wiki/Guido_van_Rossum" title="Guido van Rossum">Guido van Rossum</a>&#160;• <a href="/wiki/Alexander_Stepanov" title="Alexander Stepanov">Alexander Stepanov</a>&#160;• <a href="/wiki/Bjarne_Stroustrup" title="Bjarne Stroustrup">Bjarne Stroustrup</a>&#160;• <a href="/wiki/Niklaus_Wirth" title="Niklaus Wirth">Niklaus Wirth</a></p>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<div align="right" style="font-size: xx-small;"><a href="/wiki/Portail:Programmation_informatique/Index_th%C3%A9matique" title="Portail:Programmation informatique/Index thématique">Modifier</a></div>
+</div>
+<p><br /></p>
+<div style="background-color: #2f4f4f; padding: .5em;">
+<div style="color: #f5deb3; font-size: x-large; font-weight: 600; text-align: center; font-family: monospace;">Wikimédia associés<span style="background-color: #da70d6;">&#160;</span></div>
+</div>
+<div style="background-color: #f5deb3; border: 1px solid #2f4f4f; border-top: none; padding: .5em;">
+<div style="-moz-column-width:7em; -webkit-column-width:7em; column-width:7em; -moz-column-count:9; -webkit-column-count:9; column-count:9; text-align:center; font-size:91%;" class="colonnes noprint js-no-interprojets">
+<div style="break-inside:avoid; -webkit-column-break-inside:avoid; page-break-inside:avoid; overflow:hidden; min-height:100px">
+<div class="center">
+<div class="floatnone"><a href="https://fr.wikinews.org/wiki/Sp%C3%A9cial:Recherche/Programmation_informatique" title="n:Spécial:Recherche/Programmation informatique"><img alt="Programmation informatique, sur Wikinews" src="//upload.wikimedia.org/wikipedia/commons/thumb/2/24/Wikinews-logo.svg/66px-Wikinews-logo.svg.png" width="66" height="36" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/2/24/Wikinews-logo.svg/99px-Wikinews-logo.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/2/24/Wikinews-logo.svg/132px-Wikinews-logo.svg.png 2x" data-file-width="759" data-file-height="415" /></a></div>
+</div>
+<p><b><a href="https://fr.wikinews.org/wiki/Sp%C3%A9cial:Recherche/Programmation_informatique" class="extiw" title="n:Spécial:Recherche/Programmation informatique">Programmation informatique sur Wikinews</a></b><br />
+Actualités</p>
+</div>
+<div style="break-inside:avoid; -webkit-column-break-inside:avoid; page-break-inside:avoid; overflow:hidden; min-height:100px">
+<div class="center">
+<div class="floatnone"><a href="https://fr.wikiquote.org/wiki/Sp%C3%A9cial:Recherche/Programmation_informatique" title="q:Spécial:Recherche/Programmation informatique"><img alt="Programmation informatique, sur Wikiquote" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Wikiquote-logo.svg/30px-Wikiquote-logo.svg.png" width="30" height="36" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Wikiquote-logo.svg/45px-Wikiquote-logo.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Wikiquote-logo.svg/60px-Wikiquote-logo.svg.png 2x" data-file-width="300" data-file-height="355" /></a></div>
+</div>
+<p><b><a href="https://fr.wikiquote.org/wiki/Sp%C3%A9cial:Recherche/Programmation_informatique" class="extiw" title="q:Spécial:Recherche/Programmation informatique">Programmation informatique sur Wikiquote</a></b><br />
+Citations</p>
+</div>
+<div style="break-inside:avoid; -webkit-column-break-inside:avoid; page-break-inside:avoid; overflow:hidden; min-height:100px">
+<div class="center">
+<div class="floatnone"><a href="https://fr.wikisource.org/wiki/Sp%C3%A9cial:Recherche/Programmation_informatique" title="s:Spécial:Recherche/Programmation informatique"><img alt="Programmation informatique, sur Wikisource" src="//upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Wikisource-logo.svg/35px-Wikisource-logo.svg.png" width="35" height="37" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Wikisource-logo.svg/53px-Wikisource-logo.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Wikisource-logo.svg/70px-Wikisource-logo.svg.png 2x" data-file-width="410" data-file-height="430" /></a></div>
+</div>
+<p><b><a href="https://fr.wikisource.org/wiki/Sp%C3%A9cial:Recherche/Programmation_informatique" class="extiw" title="s:Spécial:Recherche/Programmation informatique">Programmation informatique sur Wikisource</a></b><br />
+Livres numérisés</p>
+</div>
+<div style="break-inside:avoid; -webkit-column-break-inside:avoid; page-break-inside:avoid; overflow:hidden; min-height:100px">
+<div class="center">
+<div class="floatnone"><a href="https://fr.wikibooks.org/wiki/Sp%C3%A9cial:Recherche/Programmation_informatique" title="b:Spécial:Recherche/Programmation informatique"><img alt="Programmation informatique, sur Wikilivres" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Wikibooks-logo.svg/35px-Wikibooks-logo.svg.png" width="35" height="35" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Wikibooks-logo.svg/53px-Wikibooks-logo.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Wikibooks-logo.svg/70px-Wikibooks-logo.svg.png 2x" data-file-width="300" data-file-height="300" /></a></div>
+</div>
+<p><b><a href="https://fr.wikibooks.org/wiki/Sp%C3%A9cial:Recherche/Programmation_informatique" class="extiw" title="b:Spécial:Recherche/Programmation informatique">Programmation informatique sur Wikilivres</a></b><br />
+Textes et manuels</p>
+</div>
+<div style="break-inside:avoid; -webkit-column-break-inside:avoid; page-break-inside:avoid; overflow:hidden; min-height:100px">
+<div class="center">
+<div class="floatnone"><a href="https://fr.wikiversity.org/wiki/Sp%C3%A9cial:Recherche/Programmation_informatique" title="v:Spécial:Recherche/Programmation informatique"><img alt="Programmation informatique, sur Wikiversité" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/91/Wikiversity-logo.svg/44px-Wikiversity-logo.svg.png" width="44" height="35" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/9/91/Wikiversity-logo.svg/66px-Wikiversity-logo.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/91/Wikiversity-logo.svg/88px-Wikiversity-logo.svg.png 2x" data-file-width="1000" data-file-height="800" /></a></div>
+</div>
+<p><b><a href="https://fr.wikiversity.org/wiki/Sp%C3%A9cial:Recherche/Programmation_informatique" class="extiw" title="v:Spécial:Recherche/Programmation informatique">Programmation informatique sur Wikiversité</a></b><br />
+Ressources pédagogiques</p>
+</div>
+<div style="break-inside:avoid; -webkit-column-break-inside:avoid; page-break-inside:avoid; overflow:hidden; min-height:100px">
+<div class="center">
+<div class="floatnone"><a href="https://commons.wikimedia.org/wiki/Sp%C3%A9cial:Recherche/Programmation_informatique" title="commons:Spécial:Recherche/Programmation informatique"><img alt="Programmation informatique, sur Commons" src="//upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Commons-logo.svg/27px-Commons-logo.svg.png" width="27" height="36" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Commons-logo.svg/41px-Commons-logo.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Commons-logo.svg/54px-Commons-logo.svg.png 2x" data-file-width="1024" data-file-height="1376" /></a></div>
+</div>
+<p><b><a href="https://commons.wikimedia.org/wiki/Sp%C3%A9cial:Recherche/Programmation_informatique" class="extiw" title="commons:Spécial:Recherche/Programmation informatique">Programmation informatique sur Commons</a></b><br />
+Images et médias</p>
+</div>
+<div style="break-inside:avoid; -webkit-column-break-inside:avoid; page-break-inside:avoid; overflow:hidden; min-height:100px">
+<div class="center">
+<div class="floatnone"><a href="https://fr.wiktionary.org/wiki/Sp%C3%A9cial:Recherche/Programmation_informatique" title="wikt:Spécial:Recherche/Programmation informatique"><img alt="Programmation informatique, sur Wiktionnaire" src="//upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Wiktionary-logo.svg/38px-Wiktionary-logo.svg.png" width="38" height="36" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Wiktionary-logo.svg/57px-Wiktionary-logo.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Wiktionary-logo.svg/76px-Wiktionary-logo.svg.png 2x" data-file-width="370" data-file-height="350" /></a></div>
+</div>
+<p><b><a href="https://fr.wiktionary.org/wiki/Sp%C3%A9cial:Recherche/Programmation_informatique" class="extiw" title="wikt:Spécial:Recherche/Programmation informatique">Programmation informatique sur Wiktionnaire</a></b><br />
+Définitions</p>
+</div>
+<div style="break-inside:avoid; -webkit-column-break-inside:avoid; page-break-inside:avoid; overflow:hidden; min-height:100px">
+<div class="center">
+<div class="floatnone"><a href="https://www.wikidata.org/wiki/Sp%C3%A9cial:Recherche/Programmation_informatique" title="d:Spécial:Recherche/Programmation informatique"><img alt="Programmation informatique, sur Wikidata" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Wikidata-logo.svg/62px-Wikidata-logo.svg.png" width="62" height="35" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Wikidata-logo.svg/93px-Wikidata-logo.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Wikidata-logo.svg/124px-Wikidata-logo.svg.png 2x" data-file-width="1050" data-file-height="590" /></a></div>
+</div>
+<p><b><a href="https://www.wikidata.org/wiki/Sp%C3%A9cial:Recherche/Programmation_informatique" class="extiw" title="d:Spécial:Recherche/Programmation informatique">Programmation informatique sur Wikidata</a></b><br />
+Données brutes</p>
+</div>
+<div style="break-inside:avoid; -webkit-column-break-inside:avoid; page-break-inside:avoid; overflow:hidden; min-height:100px">
+<div class="center">
+<div class="floatnone"><a href="https://fr.wikivoyage.org/wiki/Sp%C3%A9cial:Recherche/Programmation_informatique" title="voy:Spécial:Recherche/Programmation informatique"><img alt="Programmation informatique, sur Wikivoyage" src="//upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Wikivoyage-Logo-v3-icon.svg/35px-Wikivoyage-Logo-v3-icon.svg.png" width="35" height="35" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Wikivoyage-Logo-v3-icon.svg/53px-Wikivoyage-Logo-v3-icon.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Wikivoyage-Logo-v3-icon.svg/70px-Wikivoyage-Logo-v3-icon.svg.png 2x" data-file-width="193" data-file-height="193" /></a></div>
+</div>
+<p><b><a href="https://fr.wikivoyage.org/wiki/Sp%C3%A9cial:Recherche/Programmation_informatique" class="extiw" title="voy:Spécial:Recherche/Programmation informatique">Programmation informatique sur Wikivoyage</a></b><br />
+Guide de voyage</p>
+</div>
+</div>
+<hr />
+<ul>
+<li>Sur wikibooks&#160;: <a href="https://fr.wikibooks.org/wiki/Impl%C3%A9mentation_d%27algorithmes_classiques" class="extiw" title="b:Implémentation d'algorithmes classiques">Implémentation d'algorithmes classiques</a>.</li>
+</ul>
+<div align="right" style="font-size: xx-small;"><a href="/wiki/Portail:Programmation_informatique/Wikim%C3%A9dia_associ%C3%A9s" title="Portail:Programmation informatique/Wikimédia associés">Modifier</a></div>
+</div>
+<p><br /></p>
+<div style="display: flex; flex-direction: row; flex-wrap: wrap;">
+<div style="flex: 1; margin-right: .5em; flex-basis: 30em;">
+<div style="background-color: #2f4f4f; padding: .5em;">
+<div style="color: #f5deb3; font-size: x-large; font-weight: 600; text-align: center; font-family: monospace;">Portails connexes<span style="background-color: #da70d6;">&#160;</span></div>
+</div>
+<div style="background-color: #f5deb3; border: 1px solid #2f4f4f; border-top: none; padding: .5em;">
+<center>
+<div class="liste-horizontale">
+<ul>
+<li><a href="/wiki/Fichier:Crystal_mycomputer.png" class="image"><img alt="Crystal mycomputer.png" src="//upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Crystal_mycomputer.png/45px-Crystal_mycomputer.png" width="45" height="45" srcset="//upload.wikimedia.org/wikipedia/commons/e/e3/Crystal_mycomputer.png 1.5x" data-file-width="64" data-file-height="64" /></a> <b><a href="/wiki/Portail:Informatique" title="Portail:Informatique">Informatique</a></b></li>
+<li><a href="/wiki/Fichier:Crystal_kpackage.png" class="image"><img alt="Crystal kpackage.png" src="//upload.wikimedia.org/wikipedia/commons/thumb/4/40/Crystal_kpackage.png/45px-Crystal_kpackage.png" width="45" height="45" srcset="//upload.wikimedia.org/wikipedia/commons/4/40/Crystal_kpackage.png 1.5x" data-file-width="64" data-file-height="64" /></a> <b><a href="/wiki/Portail:Logiciel" title="Portail:Logiciel">Logiciel</a></b></li>
+<li><a href="/wiki/Fichier:Nuvola_apps_emacs.png" class="image"><img alt="Nuvola apps emacs.png" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_emacs.png/45px-Nuvola_apps_emacs.png" width="45" height="45" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_emacs.png/68px-Nuvola_apps_emacs.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_emacs.png/90px-Nuvola_apps_emacs.png 2x" data-file-width="128" data-file-height="128" /></a> <b><a href="/wiki/Portail:Logiciels_libres" title="Portail:Logiciels libres">Logiciels libres</a></b></li>
+<li><a href="/wiki/Fichier:Max-cut.svg" class="image"><img alt="Max-cut.svg" src="//upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Max-cut.svg/45px-Max-cut.svg.png" width="45" height="36" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Max-cut.svg/68px-Max-cut.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Max-cut.svg/90px-Max-cut.svg.png 2x" data-file-width="200" data-file-height="160" /></a> <b><a href="/wiki/Portail:Informatique_th%C3%A9orique" title="Portail:Informatique théorique">Informatique théorique</a></b></li>
+<li><a href="/wiki/Fichier:BandeauPortailLogiqueSmall.png" class="image"><img alt="BandeauPortailLogiqueSmall.png" src="//upload.wikimedia.org/wikipedia/commons/thumb/8/89/BandeauPortailLogiqueSmall.png/45px-BandeauPortailLogiqueSmall.png" width="45" height="31" srcset="//upload.wikimedia.org/wikipedia/commons/8/89/BandeauPortailLogiqueSmall.png 1.5x" data-file-width="46" data-file-height="32" /></a> <b><a href="/wiki/Portail:Logique" title="Portail:Logique">Logique</a></b></li>
+</ul>
+</div>
+</center>
+<div align="right" style="font-size: xx-small;"><a href="/wiki/Portail:Programmation_informatique/Portails_connexes" title="Portail:Programmation informatique/Portails connexes">Modifier</a></div>
+</div>
+<p><br /></p>
+</div>
+<div style="flex: 1; margin-left: .5em; flex-basis: 30em;">
+<div style="background-color: #2f4f4f; padding: .5em;">
+<div style="color: #f5deb3; font-size: x-large; font-weight: 600; text-align: center; font-family: monospace;">Participez au projet&#160;!<span style="background-color: #da70d6;">&#160;</span></div>
+</div>
+<div style="background-color: #f5deb3; border: 1px solid #2f4f4f; border-top: none; padding: .5em;">
+<p>Vous pouvez participer au travail communautaire autour de ce portail. Pour cela, rendez-vous sur le <b><a href="/wiki/Projet:Informatique" title="Projet:Informatique">«&#160;Projet Informatique&#160;»</a></b>.</p>
+<div align="right" style="font-size: xx-small;"><a href="/wiki/Portail:Programmation_informatique/Participez_au_projet" title="Portail:Programmation informatique/Participez au projet">Modifier</a></div>
+</div>
+<p><br /></p>
+</div>
+</div>
+
+
+<!-- 
+NewPP limit report
+Parsed by mw1312
+Cached time: 20180319210937
+Cache expiry: 1900800
+Dynamic content: false
+CPU time usage: 0.088 seconds
+Real time usage: 0.138 seconds
+Preprocessor visited node count: 510/1000000
+Preprocessor generated node count: 0/1500000
+Post‐expand include size: 35657/2097152 bytes
+Template argument size: 3144/2097152 bytes
+Highest expansion depth: 11/40
+Expensive parser function count: 3/500
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+Lua time usage: 0.005/10.000 seconds
+Lua memory usage: 577 KB/50 MB
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   67.101      1 -total
+ 75.29%   50.517      7 Portail:Programmation_informatique/Cadre
+ 35.13%   23.571      1 Portail:Programmation_informatique/En-tête
+ 32.26%   21.647      1 Modèle:Nombre_d'articles
+ 26.23%   17.600      2 Modèle:Pagesincat
+ 19.15%   12.852      1 Portail:Programmation_informatique/Wikimédia_associés
+ 16.17%   10.853      1 Modèle:Projets_Wikimedia_associés
+ 14.56%    9.772      2 Modèle:Icône_de_titre
+ 14.25%    9.561      1 Modèle:Son_projet
+  8.73%    5.861      1 Modèle:Son_bistro
+-->
+</div>
+<!-- Saved in parser cache with key frwiki:pcache:idhash:2984101-0!canonical and timestamp 20180319210936 and revision id 144900387
+ -->
+<noscript><img src="//fr.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript></div>					<div class="printfooter">
+						Ce document provient de «&#160;<a dir="ltr" href="https://fr.wikipedia.org/w/index.php?title=Portail:Programmation_informatique&amp;oldid=144900387">https://fr.wikipedia.org/w/index.php?title=Portail:Programmation_informatique&amp;oldid=144900387</a>&#160;».					</div>
+				<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Cat%C3%A9gorie:Accueil" title="Catégorie:Accueil">Catégorie</a> : <ul><li><a href="/wiki/Cat%C3%A9gorie:Portail:Programmation_informatique" title="Catégorie:Portail:Programmation informatique">Portail:Programmation informatique</a></li></ul></div><div id="mw-hidden-catlinks" class="mw-hidden-catlinks mw-hidden-cats-hidden">Catégories cachées : <ul><li><a href="/wiki/Cat%C3%A9gorie:Portail_comptant_entre_1_000_et_9_999_articles" title="Catégorie:Portail comptant entre 1 000 et 9 999 articles">Portail comptant entre 1 000 et 9 999 articles</a></li><li><a href="/wiki/Cat%C3%A9gorie:Page_de_portail_ou_de_projet_th%C3%A9matique" title="Catégorie:Page de portail ou de projet thématique">Page de portail ou de projet thématique</a></li></ul></div></div>				<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Menu de navigation</h2>
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Outils personnels</h3>
+						<ul>
+							<li id="pt-anonuserpage">Non connecté</li><li id="pt-anontalk"><a href="/wiki/Sp%C3%A9cial:Mes_discussions" title="La page de discussion pour les contributions depuis cette adresse IP [n]" accesskey="n">Discussion</a></li><li id="pt-anoncontribs"><a href="/wiki/Sp%C3%A9cial:Mes_contributions" title="Une liste des modifications effectuées depuis cette adresse IP [y]" accesskey="y">Contributions</a></li><li id="pt-createaccount"><a href="/w/index.php?title=Sp%C3%A9cial:Cr%C3%A9er_un_compte&amp;returnto=Portail%3AProgrammation+informatique" title="Nous vous encourageons à créer un compte utilisateur et vous connecter; ce n’est cependant pas obligatoire">Créer un compte</a></li><li id="pt-login"><a href="/w/index.php?title=Sp%C3%A9cial:Connexion&amp;returnto=Portail%3AProgrammation+informatique" title="Nous vous encourageons à vous connecter ; ce n’est cependant pas obligatoire [o]" accesskey="o">Se connecter</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Espaces de noms</h3>
+						<ul>
+							<li id="ca-nstab-portail" class="selected"><span><a href="/wiki/Portail:Programmation_informatique">Portail</a></span></li><li id="ca-talk"><span><a href="/wiki/Discussion_Portail:Programmation_informatique" rel="discussion" class="mw-redirect" title="Discussion au sujet de cette page de contenu [t]" accesskey="t">Discussion</a></span></li>						</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<input type="checkbox" class="vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+						<h3 id="p-variants-label">
+							<span>Variantes</span>
+						</h3>
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Affichages</h3>
+						<ul>
+							<li id="ca-view" class="collapsible selected"><span><a href="/wiki/Portail:Programmation_informatique">Lire</a></span></li><li id="ca-edit" class="collapsible"><span><a href="/w/index.php?title=Portail:Programmation_informatique&amp;action=edit" title="Vous pouvez modifier cette page ! [e]" accesskey="e">Modifier le code</a></span></li><li id="ca-history" class="collapsible"><span><a href="/w/index.php?title=Portail:Programmation_informatique&amp;action=history" title="Historique des versions de cette page [h]" accesskey="h">Afficher l’historique</a></span></li>						</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<input type="checkbox" class="vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+						<h3 id="p-cactions-label"><span>Plus</span></h3>
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Rechercher</label>
+						</h3>
+						<form action="/w/index.php" id="searchform">
+							<div id="simpleSearch">
+								<input type="search" name="search" placeholder="Rechercher dans Wikipédia" title="Rechercher dans Wikipédia [f]" accesskey="f" id="searchInput"/><input type="hidden" value="Spécial:Recherche" name="title"/><input type="submit" name="fulltext" value="Rechercher" title="Rechercher les pages comportant ce texte." id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/><input type="submit" name="go" value="Continuer" title="Accédez à une page du même nom si elle existe" id="searchButton" class="searchButton"/>							</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="/wiki/Wikip%C3%A9dia:Accueil_principal"  title="Visiter la page d’accueil"></a></div>
+						<div class="portal" role="navigation" id='p-navigation' aria-labelledby='p-navigation-label'>
+			<h3 id='p-navigation-label'>Navigation</h3>
+			<div class="body">
+								<ul>
+					<li id="n-mainpage-description"><a href="/wiki/Wikip%C3%A9dia:Accueil_principal" title="Accueil général [z]" accesskey="z">Accueil</a></li><li id="n-thema"><a href="/wiki/Portail:Accueil">Portails thématiques</a></li><li id="n-randompage"><a href="/wiki/Sp%C3%A9cial:Page_au_hasard" title="Affiche un article au hasard [x]" accesskey="x">Article au hasard</a></li><li id="n-contact"><a href="/wiki/Wikip%C3%A9dia:Contact">Contact</a></li>				</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Contribuer' aria-labelledby='p-Contribuer-label'>
+			<h3 id='p-Contribuer-label'>Contribuer</h3>
+			<div class="body">
+								<ul>
+					<li id="n-aboutwp"><a href="/wiki/Aide:D%C3%A9buter">Débuter sur Wikipédia</a></li><li id="n-help"><a href="/wiki/Aide:Sommaire" title="Accès à l’aide">Aide</a></li><li id="n-portal"><a href="/wiki/Wikip%C3%A9dia:Accueil_de_la_communaut%C3%A9" title="À propos du projet, ce que vous pouvez faire, où trouver les informations">Communauté</a></li><li id="n-recentchanges"><a href="/wiki/Sp%C3%A9cial:Modifications_r%C3%A9centes" title="Liste des modifications récentes sur le wiki [r]" accesskey="r">Modifications récentes</a></li><li id="n-sitesupport"><a href="//donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_fr.wikipedia.org&amp;uselang=fr" title="Soutenez-nous">Faire un don</a></li>				</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Outils</h3>
+			<div class="body">
+								<ul>
+					<li id="t-whatlinkshere"><a href="/wiki/Sp%C3%A9cial:Pages_li%C3%A9es/Portail:Programmation_informatique" title="Liste des pages liées qui pointent sur celle-ci [j]" accesskey="j">Pages liées</a></li><li id="t-recentchangeslinked"><a href="/wiki/Sp%C3%A9cial:Suivi_des_liens/Portail:Programmation_informatique" rel="nofollow" title="Liste des modifications récentes des pages appelées par celle-ci [k]" accesskey="k">Suivi des pages liées</a></li><li id="t-upload"><a href="/wiki/Aide:Importer_un_fichier" title="Téléverser des fichiers [u]" accesskey="u">Importer un fichier</a></li><li id="t-specialpages"><a href="/wiki/Sp%C3%A9cial:Pages_sp%C3%A9ciales" title="Liste de toutes les pages spéciales [q]" accesskey="q">Pages spéciales</a></li><li id="t-permalink"><a href="/w/index.php?title=Portail:Programmation_informatique&amp;oldid=144900387" title="Adresse permanente de cette version de la page">Lien permanent</a></li><li id="t-info"><a href="/w/index.php?title=Portail:Programmation_informatique&amp;action=info" title="Plus d’information sur cette page">Informations sur la page</a></li><li id="t-wikibase"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q10729459" title="Lien vers l’élément de référentiel des données connectées [g]" accesskey="g">Élément Wikidata</a></li>				</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-coll-print_export' aria-labelledby='p-coll-print_export-label'>
+			<h3 id='p-coll-print_export-label'>Imprimer / exporter</h3>
+			<div class="body">
+								<ul>
+					<li id="coll-create_a_book"><a href="/w/index.php?title=Sp%C3%A9cial:Livre&amp;bookcmd=book_creator&amp;referer=Portail%3AProgrammation+informatique">Créer un livre</a></li><li id="coll-download-as-rdf2latex"><a href="/w/index.php?title=Sp%C3%A9cial:ElectronPdf&amp;page=Portail%3AProgrammation+informatique&amp;action=show-download-screen">Télécharger comme PDF</a></li><li id="t-print"><a href="/w/index.php?title=Portail:Programmation_informatique&amp;printable=yes" title="Version imprimable de cette page [p]" accesskey="p">Version imprimable</a></li>				</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-wikibase-otherprojects' aria-labelledby='p-wikibase-otherprojects-label'>
+			<h3 id='p-wikibase-otherprojects-label'>Dans d’autres projets</h3>
+			<div class="body">
+								<ul>
+					<li class="wb-otherproject-link wb-otherproject-wikiversity"><a href="https://fr.wikiversity.org/wiki/D%C3%A9partement:Programmation_informatique" hreflang="fr">Wikiversité</a></li>				</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-lang' aria-labelledby='p-lang-label'>
+			<h3 id='p-lang-label'>Dans d’autres langues</h3>
+			<div class="body">
+								<ul>
+					<li class="interlanguage-link interwiki-ar"><a href="https://ar.wikipedia.org/wiki/%D8%A8%D9%88%D8%A7%D8%A8%D8%A9:%D8%A8%D8%B1%D9%85%D8%AC%D8%A9_%D8%A7%D9%84%D8%AD%D8%A7%D8%B3%D9%88%D8%A8" title="بوابة:برمجة الحاسوب — arabe" lang="ar" hreflang="ar" class="interlanguage-link-target">العربية</a></li><li class="interlanguage-link interwiki-ca"><a href="https://ca.wikipedia.org/wiki/Portal:Programaci%C3%B3" title="Portal:Programació — catalan" lang="ca" hreflang="ca" class="interlanguage-link-target">Català</a></li><li class="interlanguage-link interwiki-el"><a href="https://el.wikipedia.org/wiki/%CE%A0%CF%8D%CE%BB%CE%B7:%CE%A0%CF%81%CE%BF%CE%B3%CF%81%CE%B1%CE%BC%CE%BC%CE%B1%CF%84%CE%B9%CF%83%CE%BC%CF%8C%CF%82" title="Πύλη:Προγραμματισμός — grec" lang="el" hreflang="el" class="interlanguage-link-target">Ελληνικά</a></li><li class="interlanguage-link interwiki-en"><a href="https://en.wikipedia.org/wiki/Portal:Computer_programming" title="Portal:Computer programming — anglais" lang="en" hreflang="en" class="interlanguage-link-target">English</a></li><li class="interlanguage-link interwiki-es"><a href="https://es.wikipedia.org/wiki/Portal:Programaci%C3%B3n" title="Portal:Programación — espagnol" lang="es" hreflang="es" class="interlanguage-link-target">Español</a></li><li class="interlanguage-link interwiki-fa"><a href="https://fa.wikipedia.org/wiki/%D8%AF%D8%B1%DA%AF%D8%A7%D9%87:%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87%E2%80%8C%D9%86%D9%88%DB%8C%D8%B3%DB%8C" title="درگاه:برنامه‌نویسی — persan" lang="fa" hreflang="fa" class="interlanguage-link-target">فارسی</a></li><li class="interlanguage-link interwiki-he"><a href="https://he.wikipedia.org/wiki/%D7%A4%D7%95%D7%A8%D7%98%D7%9C:%D7%AA%D7%95%D7%9B%D7%A0%D7%94" title="פורטל:תוכנה — hébreu" lang="he" hreflang="he" class="interlanguage-link-target">עברית</a></li><li class="interlanguage-link interwiki-id"><a href="https://id.wikipedia.org/wiki/Portal:Pemrograman_komputer" title="Portal:Pemrograman komputer — indonésien" lang="id" hreflang="id" class="interlanguage-link-target">Bahasa Indonesia</a></li><li class="interlanguage-link interwiki-ta"><a href="https://ta.wikipedia.org/wiki/%E0%AE%B5%E0%AE%B2%E0%AF%88%E0%AE%B5%E0%AE%BE%E0%AE%9A%E0%AE%B2%E0%AF%8D:%E0%AE%95%E0%AE%A3%E0%AE%BF%E0%AE%A9%E0%AE%BF_%E0%AE%A8%E0%AE%BF%E0%AE%B0%E0%AE%B2%E0%AE%BE%E0%AE%95%E0%AF%8D%E0%AE%95%E0%AE%AE%E0%AF%8D" title="வலைவாசல்:கணினி நிரலாக்கம் — tamoul" lang="ta" hreflang="ta" class="interlanguage-link-target">தமிழ்</a></li><li class="interlanguage-link interwiki-th"><a href="https://th.wikipedia.org/wiki/%E0%B8%AA%E0%B8%96%E0%B8%B2%E0%B8%99%E0%B8%B5%E0%B8%A2%E0%B9%88%E0%B8%AD%E0%B8%A2:%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B9%80%E0%B8%82%E0%B8%B5%E0%B8%A2%E0%B8%99%E0%B9%82%E0%B8%9B%E0%B8%A3%E0%B9%81%E0%B8%81%E0%B8%A3%E0%B8%A1%E0%B8%84%E0%B8%AD%E0%B8%A1%E0%B8%9E%E0%B8%B4%E0%B8%A7%E0%B9%80%E0%B8%95%E0%B8%AD%E0%B8%A3%E0%B9%8C" title="สถานีย่อย:การเขียนโปรแกรมคอมพิวเตอร์ — thaï" lang="th" hreflang="th" class="interlanguage-link-target">ไทย</a></li><li class="interlanguage-link interwiki-uk"><a href="https://uk.wikipedia.org/wiki/%D0%9F%D0%BE%D1%80%D1%82%D0%B0%D0%BB:%D0%9F%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F" title="Портал:Програмування — ukrainien" lang="uk" hreflang="uk" class="interlanguage-link-target">Українська</a></li><li class="interlanguage-link interwiki-zh"><a href="https://zh.wikipedia.org/wiki/Portal:%E9%9B%BB%E8%85%A6%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88" title="Portal:電腦程式設計 — chinois" lang="zh" hreflang="zh" class="interlanguage-link-target">中文</a></li>				</ul>
+				<div class="after-portlet after-portlet-lang"><span class="wb-langlinks-edit wb-langlinks-link"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q10729459#sitelinks-wikipedia" title="Modifier les liens interlangues" class="wbc-editpage">Modifier les liens</a></span></div>			</div>
+		</div>
+				</div>
+		</div>
+				<div id="footer" role="contentinfo">
+						<ul id="footer-info">
+								<li id="footer-info-lastmod"> La dernière modification de cette page a été faite le 27 janvier 2018 à 02:26.</li>
+								<li id="footer-info-copyright"><span style="white-space: normal"><a class="internal" href="/wiki/Wikip%C3%A9dia:Citation_et_r%C3%A9utilisation_du_contenu_de_Wikip%C3%A9dia" title="Droit d'auteur">Droit d'auteur</a> : les textes sont disponibles sous <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.fr" title="Licence Creative Commons Attribution - partage dans les mêmes conditions 3.0 non transposé">licence Creative Commons attribution, partage dans les mêmes conditions</a> ; d’autres conditions peuvent s’appliquer. Voyez les <a href="//wikimediafoundation.org/wiki/Conditions_d%27utilisation" title="Conditions d’utilisation de la Wikimedia Foundation">conditions d’utilisation</a> pour plus de détails, ainsi que les <a class="internal" href="/wiki/Wikip%C3%A9dia:Cr%C3%A9dits_graphiques" title="Droit d'auteur de certaines icônes">crédits graphiques</a>. <br />
+Wikipedia® est une marque déposée de la <a href="//wikimediafoundation.org/wiki/Accueil" title="Wikimedia Foundation">Wikimedia Foundation, Inc.</a>, organisation de bienfaisance régie par le paragraphe <a class="internal" href="/wiki/501c" title="501c">501(c)(3)</a> du code fiscal des États-Unis.</span><br /></li>
+							</ul>
+						<ul id="footer-places">
+								<li id="footer-places-privacy"><a href="https://meta.wikimedia.org/wiki/Privacy_policy/fr" class="extiw" title="m:Privacy policy/fr">Politique de confidentialité</a></li>
+								<li id="footer-places-about"><a href="/wiki/Wikip%C3%A9dia:%C3%80_propos_de_Wikip%C3%A9dia" title="Wikipédia:À propos de Wikipédia">À propos de Wikipédia</a></li>
+								<li id="footer-places-disclaimer"><a href="/wiki/Wikip%C3%A9dia:Avertissements_g%C3%A9n%C3%A9raux" title="Wikipédia:Avertissements généraux">Avertissements</a></li>
+								<li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Développeurs</a></li>
+								<li id="footer-places-cookiestatement"><a href="https://wikimediafoundation.org/wiki/Cookie_statement">Déclaration sur les témoins (cookies)</a></li>
+								<li id="footer-places-mobileview"><a href="//fr.m.wikipedia.org/w/index.php?title=Portail:Programmation_informatique&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Version mobile</a></li>
+							</ul>
+										<ul id="footer-icons" class="noprint">
+										<li id="footer-copyrightico">
+						<a href="https://wikimediafoundation.org/"><img src="/static/images/wikimedia-button.png" srcset="/static/images/wikimedia-button-1.5x.png 1.5x, /static/images/wikimedia-button-2x.png 2x" width="88" height="31" alt="Wikimedia Foundation"/></a>					</li>
+										<li id="footer-poweredbyico">
+						<a href="//www.mediawiki.org/"><img src="/static/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/static/images/poweredby_mediawiki_132x47.png 1.5x, /static/images/poweredby_mediawiki_176x62.png 2x" width="88" height="31"/></a>					</li>
+									</ul>
+						<div style="clear: both;"></div>
+		</div>
+		<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.088","walltime":"0.138","ppvisitednodes":{"value":510,"limit":1000000},"ppgeneratednodes":{"value":0,"limit":1500000},"postexpandincludesize":{"value":35657,"limit":2097152},"templateargumentsize":{"value":3144,"limit":2097152},"expansiondepth":{"value":11,"limit":40},"expensivefunctioncount":{"value":3,"limit":500},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":0,"limit":5000000},"entityaccesscount":{"value":0,"limit":400},"timingprofile":["100.00%   67.101      1 -total"," 75.29%   50.517      7 Portail:Programmation_informatique/Cadre"," 35.13%   23.571      1 Portail:Programmation_informatique/En-tête"," 32.26%   21.647      1 Modèle:Nombre_d'articles"," 26.23%   17.600      2 Modèle:Pagesincat"," 19.15%   12.852      1 Portail:Programmation_informatique/Wikimédia_associés"," 16.17%   10.853      1 Modèle:Projets_Wikimedia_associés"," 14.56%    9.772      2 Modèle:Icône_de_titre"," 14.25%    9.561      1 Modèle:Son_projet","  8.73%    5.861      1 Modèle:Son_bistro"]},"scribunto":{"limitreport-timeusage":{"value":"0.005","limit":"10.000"},"limitreport-memusage":{"value":590370,"limit":52428800}},"cachereport":{"origin":"mw1312","timestamp":"20180319210937","ttl":1900800,"transientcontent":false}}});});</script><script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":57,"wgHostname":"mw1255"});});</script>
+	</body>
+</html>
