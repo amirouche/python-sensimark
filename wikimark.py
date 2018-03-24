@@ -162,13 +162,21 @@ def process(input):
 
 
 def guess(input, url):
+    input = Path(input)
     response = requests.get(url)
     string = response.text
     tokens = tokenize(string)
-    model = Doc2Vec.load(str(Path(input) / 'model.doc2vec.gz'))
+    model = Doc2Vec.load(str(input / 'model.doc2vec.gz'))
     vector = model.infer_vector(tokens)
-    for doc, score in model.docvecs.most_similar([vector]):
-        print('{} ~ {}'.format(doc, score))
+    out = list()
+    for filepath in input.glob('./*/*/*.model'):
+        with filepath.open('rb') as f:
+            model = pickle.load(f)
+        prediction = model.predict([vector])[0]
+        out.append((filepath.parent, prediction))
+    out.sort(key=lambda x: x[1])
+    for subcategory, prediction in out:
+        print('{} ~ {}'.format(subcategory, prediction))
 
 
 if __name__ == '__main__':
