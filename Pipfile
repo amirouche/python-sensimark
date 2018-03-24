@@ -11,6 +11,8 @@ lxml = "*"
 docopt = "*"
 requests = "*"
 jupyter = "*"
+gensim = "*"
+scikit-learn = "*"
 
 
 [dev-packages]

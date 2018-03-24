@@ -5,17 +5,19 @@
   wikimark.py guess INPUT URL
 """
 import json
+import pickle
 import re
 from pathlib import Path
 from string import punctuation
 
 import requests
-
+from docopt import docopt
 from gensim.models.doc2vec import TaggedDocument
 from gensim.models.doc2vec import Doc2Vec
 from lxml import html
 from lxml.html.clean import clean_html
-from docopt import docopt
+from sklearn import svm
+
 
 REST_API = 'https://en.wikipedia.org/api/rest_v1/page/html/'
 INPUT = REST_API + 'Wikipedia%3AVital_articles'
@@ -105,18 +107,58 @@ def collect(output):
 
 def iter_all_documents(input):
     for article in input.glob('./*/*/*'):
-        print('Preprocessing {}'.format(article))
+        print('Doc2Vec: Preprocessing "{}"'.format(article))
         with article.open() as f:
             tokens = tokenize(f.read())
         yield TaggedDocument(tokens, [str(article)])
 
 
-def process(input):
-    input = Path(input)
+def make_dov2vec_model(input):
     documents = list(iter_all_documents(input))
     model = Doc2Vec(documents, vector_size=100, window=8, min_count=2, workers=7)  # noqa
     filepath = input / 'model.doc2vec.gz'
     model.save(str(filepath))
+    return model
+
+
+def iter_filepath_and_vectors(input, doc2vec):
+    for filepath in input.glob('./*/*/*'):
+        # skip the model, this is not an input document
+        if filepath.name.endswith('.model'):
+            continue
+        # get the vector from the model and yield
+        with filepath.open() as f:
+            tokens = tokenize(f.read())
+        vector = doc2vec.infer_vector(tokens)
+        yield filepath, vector
+
+
+def regression(input, doc2vec):
+    for subcategory in input.glob('./*/*/'):
+        # skip models
+        if not subcategory.is_dir():
+            continue
+        # build regression model for the subcategory
+        print('Building regression for "{}"'.format(subcategory))
+        model = svm.SVR()
+        X = list()
+        y = list()
+        for filepath, vector in iter_filepath_and_vectors(input, doc2vec):
+            X.append(vector)
+            value = 1. if filepath.parent == subcategory else 0.
+            y.append(value)
+        model.fit(X, y)
+        with (subcategory / 'svr.model').open('wb') as f:
+            pickle.dump(model, f)
+
+
+def process(input):
+    input = Path(input)
+    print('Doc2Vec preprocessing')
+    # doc2vec = make_dov2vec_model(input)
+    doc2vec = Doc2Vec.load(str(Path(input) / 'model.doc2vec.gz'))
+    print('Regression model computation')
+    regression(input, doc2vec)
 
 
 def guess(input, url):
