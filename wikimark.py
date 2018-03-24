@@ -2,7 +2,7 @@
 """Usage:
   wikimark.py collect OUTPUT
   wikimark.py process INPUT
-  wikimark.py guess INPUT URL
+  wikimark.py guess [--all] INPUT URL
 """
 import json
 import pickle
@@ -164,7 +164,7 @@ def process(input):
     regression(input, doc2vec)
 
 
-def guess(input, url):
+def guess(input, url, all_subcategories):
     input = Path(input)
     response = requests.get(url)
     string = response.text
@@ -178,6 +178,8 @@ def guess(input, url):
         prediction = model.predict([vector])[0]
         subcategories.append((filepath.parent, prediction))
     subcategories.sort(key=lambda x: x[1], reverse=True)
+    if not all_subcategories:
+        subcategories = subcategories[:10]
     # compute categories prediction
     categories = Counter()
     for category in input.glob('./*/'):
@@ -215,4 +217,4 @@ if __name__ == '__main__':
     elif args.get('process'):
         process(args.get('INPUT'))
     elif args.get('guess'):
-        guess(args.get('INPUT'), args.get('URL'))
+        guess(args.get('INPUT'), args.get('URL'), args.get('--all', False))
