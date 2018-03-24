@@ -29,10 +29,9 @@ Society ~ 0.4
 
 # Getting started
 
-TBD
-
-# CLI
-
-```
-curl https://content.cultureandempire.com/chapter2.html | wikimark
+```bash
+$ mkdir build
+$ wikimark.py collect build
+$ wikimark.py process build
+$ wikimark.py guess build https://en.wikipedia.org/wiki/Age_of_Enlightenment
 ```
