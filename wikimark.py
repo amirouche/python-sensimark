@@ -11,6 +11,7 @@ from collections import Counter
 from collections import OrderedDict
 from pathlib import Path
 from string import punctuation
+from urllib.parse import quote_plus
 
 import requests
 from asciitree import LeftAligned
@@ -50,7 +51,7 @@ def extract_subcategory(section):
     title = REGEX_TITLE.match(title).group().strip()
     out['title'] = title
     out['articles'] = list()
-    for href in ul.xpath('./li/a/@href'):
+    for href in ul.xpath('.//a/@href'):
         href = href[2:]
         if href not in ("Wikipedia:Vital_articles/Level/2", "Wikipedia:Vital_articles/Level/1"):  # noqa
             out['articles'].append(href)
@@ -65,8 +66,6 @@ def extract_category(section):
     out['title'] = title
     out['subcategories'] = list()
     for h3 in div.xpath('.//h3'):
-        # for mathematics, the above xpath doesn't work skip it, see
-        # the talk page for more info
         section = h3.getparent()
         subcategory = extract_subcategory(section)
         out['subcategories'].append(subcategory)
@@ -88,12 +87,12 @@ def get_specification():
 
 
 def collect(output):
-    specification = get_specification()
     output = Path(output)
     # write specification
+    specification = get_specification()
     with (output / 'specification.json').open('w') as f:
         f.write(json.dumps(specification, indent=4, sort_keys=True))
-    # create directories, download and preprocess articles
+    # create directories, download articles
     for category in specification:
         directory = output / category['title']
         directory.mkdir(parents=True, exist_ok=True)
@@ -101,7 +100,8 @@ def collect(output):
             subdirectory = directory / subcategory['title']
             subdirectory.mkdir(parents=True, exist_ok=True)
             for article in subcategory['articles']:
-                filepath = subdirectory / article
+                filename = quote_plus(article)
+                filepath = subdirectory / filename
                 with filepath.open('w') as f:
                     print('Downloading {}'.format(filepath))
                     response = requests.get(REST_API + article)
@@ -118,6 +118,7 @@ def iter_all_documents(input):
 
 def make_dov2vec_model(input):
     documents = list(iter_all_documents(input))
+    print('Doc2Vec: building the model')
     model = Doc2Vec(documents, vector_size=100, window=8, min_count=2, workers=7)  # noqa
     filepath = input / 'model.doc2vec.gz'
     model.save(str(filepath))
