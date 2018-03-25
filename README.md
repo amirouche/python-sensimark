@@ -73,3 +73,19 @@ similarity
 ```
 
 You can also use your own corpus.
+
+# How?
+
+wikimark use [gensim](https://radimrehurek.com/gensim/)
+and [scikit-learn](https://scikit-learn.org/).
+
+- A Doc2Vec embedding is built with the whole corpus.
+- Regression models for each subcategory is built using the Doc2Vec
+  embedding of the related documents using 1-vs-all strategy.
+
+The `wikimark.py guess` command will predict the score of the input
+document against each subcategory regression models.
+
+# Who?
+
+[Amirouche](mailto:amirouche@hypermove.net)
