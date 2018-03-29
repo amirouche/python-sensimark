@@ -145,7 +145,8 @@ def collect(output):
                 with filepath.open('w') as f:
                     print('Downloading {}'.format(filepath))
                     response = requests.get(REST_API + article)
-                    f.write(response.text)
+                    if response.status == 200:
+                        f.write(response.text)
 
 
 def iter_all_documents(input):
@@ -182,7 +183,7 @@ def iter_filepath_and_vectors(input, doc2vec):
 
 
 def regression(input, doc2vec):
-    for subcategory in input.glob('./*/*/'):
+    for subcategory in input.glob('./*/*/')[:5]:
         # skip models
         if not subcategory.is_dir():
             continue
