@@ -75,8 +75,9 @@ REGEX_TITLE = re.compile(r'[^(]+')
 
 
 def tokenize(string):
-    text = clean_html(html.fromstring(string)).text_content()
-    clean = ''.join([' ' if c in punctuation else c for c in text]).split()
+    # strip punctuation
+    clean = ''.join([' ' if c in punctuation else c for c in string]).split()
+    # remove words smaller than 3
     tokens = [e for e in (' '.join(clean)).lower().split() if len(e) > 2]
     return tokens
 
@@ -151,8 +152,11 @@ def iter_all_documents(input):
     for article in input.glob('./*/*/*'):
         print('Doc2Vec: Preprocessing "{}"'.format(article))
         with article.open() as f:
-            tokens = tokenize(f.read())
-        yield TaggedDocument(tokens, [str(article)])
+            string = f.read()
+        for index, paragraph in enumerate(html2paragraph(string)):
+            tokens = tokenize(paragraph)
+            tag = '{} #{}'.format(article, index)
+            yield TaggedDocument(tokens, [tag])
 
 
 def make_dov2vec_model(input):
@@ -169,11 +173,12 @@ def iter_filepath_and_vectors(input, doc2vec):
         # skip the model, this is not an input document
         if filepath.name.endswith('.model'):
             continue
-        # get the vector from the model and yield
+        #
         with filepath.open() as f:
-            tokens = tokenize(f.read())
-        vector = doc2vec.infer_vector(tokens)
-        yield filepath, vector
+            string = f.read()
+        for index, paragraph in enumerate(html2paragraph(string)):
+            tokens = tokenize(paragraph)
+            yield filepath, doc2vec.infer_vector(tokens)
 
 
 def regression(input, doc2vec):
