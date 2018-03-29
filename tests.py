@@ -9,4 +9,4 @@ class TestHTML2Paragraph:
         out = html2paragraph(input)
         with open('data/test/base.txt') as f:
             expected = f.read()
-        assert out.stringify() == expected
+        assert '\n'.join(out) == expected.strip()

@@ -11,7 +11,6 @@ import pickle
 import re
 from collections import Counter
 from collections import OrderedDict
-from collections import namedtuple
 from pathlib import Path
 from string import punctuation
 from urllib.parse import quote_plus
@@ -26,8 +25,8 @@ from lxml.html.clean import clean_html
 from sklearn import svm
 
 
-
 # lxml helper
+
 
 def get_children(xml):
     """List children ignoring comments"""
@@ -36,30 +35,17 @@ def get_children(xml):
 
 # html2paragraph
 
-Paragraph = namedtuple('Paragraph', ['level', 'text'])
-
-
-class Document(list):
-
-    def stringify(self):
-        out = ''
-        for paragraph in self:
-            out += paragraph.text + '\n'
-        return out
-
-
 def extract_paragraphs(element):
     if element.tag == 'hr':
         return []
     if element.tag == 'p':
         text = clean_html(element).text_content()
         text = ' '.join(text.split())
-        return [Paragraph(8, text)]
+        return [text]
     if element.tag[0] == 'h':
-        level = int(element.tag[1])
         text = clean_html(element).text_content()
         text = ' '.join(text.split())
-        return [Paragraph(level, text)]
+        return [text]
     out = list()
     for child in get_children(element):
         out.extend(extract_paragraphs(child))
@@ -67,12 +53,12 @@ def extract_paragraphs(element):
 
 
 def html2paragraph(string):
-    out = Document()
+    out = list()
     xml = html.fromstring(string)
     # extract title
     title = xml.xpath('/html/head/title/text()')[0]
     title = ' '.join(title.split())  # sanitize
-    out.append(Paragraph(0, title))
+    out.append(title)
     # extract the rest
     body = xml.xpath('/html/body')[0]
     out.extend(extract_paragraphs(body))
