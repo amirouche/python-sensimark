@@ -3,6 +3,7 @@
   wikimark.py collect OUTPUT
   wikimark.py process INPUT
   wikimark.py guess [--all] INPUT URL
+  wikimark.py tool ngrams SIZE MIN INPUT
 """
 import json
 import pickle
@@ -204,10 +205,47 @@ def guess(input, url, all_subcategories):
         children = OrderedDict()
         for subcategory, prediction in subcategories:
             if subcategory.parent == category:
-                children['{} ~ {}'.format(subcategory.name, prediction)] = dict()
+                children['{} ~ {}'.format(subcategory.name, prediction)] = dict()  # noqa
         tree[name] = children
     print(LeftAligned()(dict(similarity=tree)))
 
+
+def file_ngrams(size, file):
+    with file.open('r') as f:
+        content = f.read()
+    tokens = tokenize(content)
+    grams = [tokens[i:i+size] for i in range(len(tokens) - size + 1)]
+    grams = [' '.join(gram) for gram in grams]
+    out = Counter(grams)
+    return out
+
+
+def ngrams(size, min, input):
+    input = Path(input)
+    if input.is_dir():
+        out = Counter()
+        for file in input.glob('./*'):
+            if file.name.endswith('.model'):
+                continue
+            other = file_ngrams(size, file)
+            out.update(other)
+        items = sorted(out.items(), key=lambda x: x[1], reverse=True)
+        for ngram, count in items:
+            if count < min:
+                break
+            print('count("{}") == {}'.format(ngram, count))
+    else:
+        print('* Ngrams of size {} occurring at least {} in {}:'.format(
+            size,
+            min,
+            input)
+        )
+        out = file_ngrams(size, input)
+        items = sorted(out.items(), key=lambda x: x[1], reverse=True)
+        for ngram, count in items:
+            if count < min:
+                break
+            print('** count("{}") == {}'.format(ngram, count))
 
 
 if __name__ == '__main__':
@@ -218,3 +256,7 @@ if __name__ == '__main__':
         process(args.get('INPUT'))
     elif args.get('guess'):
         guess(args.get('INPUT'), args.get('URL'), args.get('--all', False))
+    elif args.get('tool') and args.get('ngrams'):
+        ngrams(int(args.get('SIZE')), int(args.get('MIN')), args.get('INPUT'))
+    else:
+        raise Exception('Some command is not handled properly')
