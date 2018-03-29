@@ -1,3 +1,5 @@
+tmp/
+.pytest_cache/
 *~
 model.doc2vec.gz
 svr.model
