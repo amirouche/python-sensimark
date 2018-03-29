@@ -4,12 +4,14 @@
   wikimark.py process INPUT
   wikimark.py guess [--all] INPUT URL
   wikimark.py tool ngrams SIZE MIN INPUT
+  wikimark.py tool html2paragraph INPUT
 """
 import json
 import pickle
 import re
 from collections import Counter
 from collections import OrderedDict
+from collections import namedtuple
 from pathlib import Path
 from string import punctuation
 from urllib.parse import quote_plus
@@ -24,6 +26,61 @@ from lxml.html.clean import clean_html
 from sklearn import svm
 
 
+
+# lxml helper
+
+def get_children(xml):
+    """List children ignoring comments"""
+    return [e for e in xml.iterchildren() if not isinstance(e, html.HtmlComment)]  # noqa
+
+
+# html2paragraph
+
+Paragraph = namedtuple('Paragraph', ['level', 'text'])
+
+
+class Document(list):
+
+    def stringify(self):
+        out = ''
+        for paragraph in self:
+            out += paragraph.text + '\n'
+        return out
+
+
+def extract_paragraphs(element):
+    if element.tag == 'hr':
+        return []
+    if element.tag == 'p':
+        text = clean_html(element).text_content()
+        text = ' '.join(text.split())
+        return [Paragraph(8, text)]
+    if element.tag[0] == 'h':
+        level = int(element.tag[1])
+        text = clean_html(element).text_content()
+        text = ' '.join(text.split())
+        return [Paragraph(level, text)]
+    out = list()
+    for child in get_children(element):
+        out.extend(extract_paragraphs(child))
+    return out
+
+
+def html2paragraph(string):
+    out = Document()
+    xml = html.fromstring(string)
+    # extract title
+    title = xml.xpath('/html/head/title/text()')[0]
+    title = ' '.join(title.split())  # sanitize
+    out.append(Paragraph(0, title))
+    # extract the rest
+    body = xml.xpath('/html/body')[0]
+    out.extend(extract_paragraphs(body))
+    return out
+
+
+# core
+
 REST_API = 'https://en.wikipedia.org/api/rest_v1/page/html/'
 INPUT = REST_API + 'Wikipedia%3AVital_articles'
 
@@ -36,11 +93,6 @@ def tokenize(string):
     clean = ''.join([' ' if c in punctuation else c for c in text]).split()
     tokens = [e for e in (' '.join(clean)).lower().split() if len(e) > 2]
     return tokens
-
-
-def get_children(xml):
-    """List children ignoring comments"""
-    return [e for e in xml.iterchildren() if not isinstance(e, html.HtmlComment)]  # noqa
 
 
 def extract_subcategory(section):
@@ -248,6 +300,7 @@ def ngrams(size, min, input):
             print('** count("{}") == {}'.format(ngram, count))
 
 
+
 if __name__ == '__main__':
     args = docopt(__doc__)
     if args.get('collect'):
@@ -258,5 +311,10 @@ if __name__ == '__main__':
         guess(args.get('INPUT'), args.get('URL'), args.get('--all', False))
     elif args.get('tool') and args.get('ngrams'):
         ngrams(int(args.get('SIZE')), int(args.get('MIN')), args.get('INPUT'))
+    elif args.get('tool') and args.get('html2paragraph'):
+        input = Path(args.get('INPUT'))
+        with input.open() as f:
+            out = html2paragraph(f.read())
+        print(out.stringify())
     else:
         raise Exception('Some command is not handled properly')

@@ -18,3 +18,4 @@ asciitree = "*"
 
 [dev-packages]
 
+pytest = "*"
