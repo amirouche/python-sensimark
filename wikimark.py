@@ -12,9 +12,12 @@ import re
 import sys
 from collections import Counter
 from collections import OrderedDict
+from multiprocessing import Pool
+from multiprocessing import cpu_count
 from pathlib import Path
 from string import punctuation
 from urllib.parse import quote_plus
+
 
 import requests
 from asciitree import LeftAligned
@@ -183,31 +186,38 @@ def iter_filepath_and_vectors(input, doc2vec):
             yield filepath, doc2vec.infer_vector(tokens)
 
 
-def regression(input, doc2vec):
-    for index, subcategory in enumerate(input.glob('./*/*/')):
-        # skip models
-        if not subcategory.is_dir():
-            continue
-        # build regression model for the subcategory
-        print('Building regression for "{}"'.format(subcategory))
-        model = svm.SVR()
-        X = list()
-        y = list()
-        for filepath, vector in iter_filepath_and_vectors(input, doc2vec):
-            X.append(vector)
-            value = 1. if filepath.parent == subcategory else 0.
-            y.append(value)
-        model.fit(X, y)
-        with (subcategory / 'svr.model').open('wb') as f:
-            pickle.dump(model, f)
+def regression(args):
+    doc2vec, subcategory = args
+    # skip models
+    if not subcategory.is_dir():
+        return
+    # build regression model for the subcategory
+    print('Building regression for "{}"'.format(subcategory))
+    model = svm.SVR()
+    X = list()
+    y = list()
+    input = subcategory.parent.parent
+    for filepath, vector in iter_filepath_and_vectors(input, doc2vec):
+        X.append(vector)
+        value = 1. if filepath.parent == subcategory else 0.
+        y.append(value)
+    model.fit(X, y)
+    with (subcategory / 'svr.model').open('wb') as f:
+        pickle.dump(model, f)
 
 
 def process(input):
     input = Path(input)
     print('Doc2Vec preprocessing')
-    doc2vec = make_dov2vec_model(input)
+    # doc2vec = make_dov2vec_model(input)
+    doc2vec = Doc2Vec.load(str(input / 'model.doc2vec.gz'))
     print('Regression model computation')
-    regression(input, doc2vec)
+    pool = Pool(cpu_count() - 1)
+    subcategories = list(input.glob('./*/*/'))
+    doc2vecs = [doc2vec] * len(subcategories)
+    generator = pool.imap_unordered(regression, zip(doc2vecs, subcategories), chunksize=3)  # noqa
+    for out in generator:
+        pass
 
 
 def guess(input, all_subcategories):
