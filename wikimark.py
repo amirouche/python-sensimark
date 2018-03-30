@@ -149,7 +149,7 @@ def collect(output):
                 with filepath.open('w') as f:
                     print('Downloading {}'.format(filepath))
                     response = requests.get(REST_API + article)
-                    if response.status == 200:
+                    if response.status_code == 200:
                         f.write(response.text)
 
 
