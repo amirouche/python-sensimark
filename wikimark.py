@@ -209,8 +209,8 @@ def regression(args):
 def process(input):
     input = Path(input)
     print('Doc2Vec preprocessing')
-    # doc2vec = make_dov2vec_model(input)
-    doc2vec = Doc2Vec.load(str(input / 'model.doc2vec.gz'))
+    doc2vec = make_dov2vec_model(input)
+    # doc2vec = Doc2Vec.load(str(input / 'model.doc2vec.gz'))
     print('Regression model computation')
     pool = Pool(cpu_count() - 1)
     subcategories = list(input.glob('./*/*/'))
