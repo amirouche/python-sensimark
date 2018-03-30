@@ -2,13 +2,14 @@
 """Usage:
   wikimark.py collect OUTPUT
   wikimark.py process INPUT
-  wikimark.py guess [--all] INPUT URL
+  wikimark.py guess [--all] INPUT
   wikimark.py tool ngrams SIZE MIN INPUT
   wikimark.py tool html2paragraph INPUT
 """
 import json
 import pickle
 import re
+import sys
 from collections import Counter
 from collections import OrderedDict
 from pathlib import Path
@@ -183,7 +184,7 @@ def iter_filepath_and_vectors(input, doc2vec):
 
 
 def regression(input, doc2vec):
-    for subcategory in input.glob('./*/*/')[:5]:
+    for index, subcategory in enumerate(input.glob('./*/*/')):
         # skip models
         if not subcategory.is_dir():
             continue
@@ -209,22 +210,21 @@ def process(input):
     regression(input, doc2vec)
 
 
-def guess(input, url, all_subcategories):
+def guess(input, all_subcategories):
     input = Path(input)
-    response = requests.get(url)
-    string = response.text
-    tokens = tokenize(string)
+    string = sys.stdin.read()
     model = Doc2Vec.load(str(input / 'model.doc2vec.gz'))
-    vector = model.infer_vector(tokens)
-    subcategories = list()
-    for filepath in input.glob('./*/*/*.model'):
-        with filepath.open('rb') as f:
-            model = pickle.load(f)
-        prediction = model.predict([vector])[0]
-        subcategories.append((filepath.parent, prediction))
-    subcategories.sort(key=lambda x: x[1], reverse=True)
-    if not all_subcategories:
-        subcategories = subcategories[:10]
+    subcategories = Counter()
+    for paragraph in html2paragraph(string):
+        tokens = tokenize(paragraph)
+        vector = model.infer_vector(tokens)
+        for filepath in input.glob('./*/*/*.model'):
+            with filepath.open('rb') as f:
+                model = pickle.load(f)
+            prediction = model.predict([vector])[0]
+            subcategories[filepath.parent] += prediction
+    total = len(subcategories) if all_subcategories else 10
+    subcategories.most_common(total)
     # compute categories prediction
     categories = Counter()
     for category in input.glob('./*/'):
@@ -233,7 +233,7 @@ def guess(input, url, all_subcategories):
             continue
         # compute mean score for the category
         count = 0
-        for subcategory, prediction in subcategories:
+        for subcategory, prediction in subcategories.items():
             if subcategory.parent == category:
                 count += 1
                 categories[category] += prediction
@@ -300,7 +300,7 @@ if __name__ == '__main__':
     elif args.get('process'):
         process(args.get('INPUT'))
     elif args.get('guess'):
-        guess(args.get('INPUT'), args.get('URL'), args.get('--all', False))
+        guess(args.get('INPUT'), args.get('--all', False))
     elif args.get('tool') and args.get('ngrams'):
         ngrams(int(args.get('SIZE')), int(args.get('MIN')), args.get('INPUT'))
     elif args.get('tool') and args.get('html2paragraph'):
