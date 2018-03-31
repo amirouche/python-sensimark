@@ -223,18 +223,23 @@ def process(input):
 def guess(input, all_subcategories):
     input = Path(input)
     string = sys.stdin.read()
-    model = Doc2Vec.load(str(input / 'model.doc2vec.gz'))
+    doc2vec = Doc2Vec.load(str(input / 'model.doc2vec.gz'))
     subcategories = Counter()
-    for paragraph in html2paragraph(string):
+    for index, paragraph in enumerate(html2paragraph(string)):
         tokens = tokenize(paragraph)
-        vector = model.infer_vector(tokens)
+        vector = doc2vec.infer_vector(tokens)
         for filepath in input.glob('./*/*/*.model'):
             with filepath.open('rb') as f:
                 model = pickle.load(f)
             prediction = model.predict([vector])[0]
             subcategories[filepath.parent] += prediction
+    # compute the mean score for each subcategory
+    for subcategory, prediction in subcategories.items():
+        subcategories[subcategory] = prediction / (index + 1)
+    # keep only the revelant categories
+    print('all_subcategories {}'.format(all_subcategories))
     total = len(subcategories) if all_subcategories else 10
-    subcategories.most_common(total)
+    subcategories = OrderedDict(subcategories.most_common(total))
     # compute categories prediction
     categories = Counter()
     for category in input.glob('./*/'):
@@ -257,7 +262,7 @@ def guess(input, all_subcategories):
     for category, prediction in categories.most_common(len(categories)):
         name = '{} ~ {}'.format(category.name, prediction)
         children = OrderedDict()
-        for subcategory, prediction in subcategories:
+        for subcategory, prediction in subcategories.items():
             if subcategory.parent == category:
                 children['{} ~ {}'.format(subcategory.name, prediction)] = dict()  # noqa
         tree[name] = children
