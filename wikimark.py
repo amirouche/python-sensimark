@@ -237,7 +237,6 @@ def guess(input, all_subcategories):
     for subcategory, prediction in subcategories.items():
         subcategories[subcategory] = prediction / (index + 1)
     # keep only the revelant categories
-    print('all_subcategories {}'.format(all_subcategories))
     total = len(subcategories) if all_subcategories else 10
     subcategories = OrderedDict(subcategories.most_common(total))
     # compute categories prediction
