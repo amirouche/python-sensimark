@@ -35,41 +35,59 @@ $ pipenv install
 $ mkdir build
 $ wikimark.py collect build
 $ wikimark.py process build
-$ ./wikimark.py guess build/ https://en.wikipedia.org/wiki/Personal_knowledge_base
+$ curl https://github.com/cultureandempire/cultureandempire.github.io/blob/master/culture.md | ./wikimark.py guess build/
 similarity
- +-- Technology ~ 0.17140869732263997
- |   +-- Computing and information technology ~ 0.17140869732263997
- +-- Science ~ 0.15282761155955393
- |   +-- Physics ~ 0.15282761155955393
- +-- Society and social sciences ~ 0.1509537790911352
- |   +-- Media ~ 0.18972681220299564
- |   +-- Language ~ 0.13639047880005872
- |   +-- Social issues ~ 0.12674404627035118
- +-- People ~ 0.13834670265555754
- |   +-- Politicians and leaders ~ 0.14120826187649851
- |   +-- Inventors and scientists ~ 0.1354851434346166
- +-- Everyday life ~ 0.13576029816193244
- |   +-- Recreation and entertainment ~ 0.13576029816193244
- +-- Arts and culture ~ 0.12927331950583784
- |   +-- Literature ~ 0.12927331950583784
- +-- History ~ 0.12506135377632388
-     +-- General ~ 0.12506135377632388
-$ ./wikimark.py guess build/ https://en.wikipedia.org/wiki/Age_of_Enlightenment
+ +-- Technology ~ 0.09932770275501317
+ |   +-- General ~ 0.09932770275501317
+ +-- Science ~ 0.09905069171042175
+ |   +-- General ~ 0.09905069171042175
+ +-- Geography ~ 0.09897996204391411
+ |   +-- Continents and regions ~ 0.09914627336640339
+ |   +-- General ~ 0.09881365072142484
+ +-- Mathematics ~ 0.09897542847422805
+ |   +-- Other ~ 0.09911568655298664
+ |   +-- Arithmetic ~ 0.09883517039546945
+ +-- Society and social sciences ~ 0.09886767613461538
+ |   +-- Social issues ~ 0.09886767613461538
+ +-- History ~ 0.09886377525104235
+     +-- General ~ 0.09893293240770612
+     +-- History by subject matter ~ 0.09884456012696491
+     +-- Post-classical history ~ 0.09881383321845605
+$ curl https://en.wikipedia.org/wiki/Personal_knowledge_base | ./wikimark.py guess build
 similarity
- +-- People ~ 0.15687219491239904
- |   +-- Philosophers and social scientists ~ 0.16457852199543446
- |   +-- Politicians and leaders ~ 0.16347889387078907
- |   +-- Writers ~ 0.1517315759601271
- |   +-- Inventors and scientists ~ 0.14769978782324555
- +-- Arts and culture ~ 0.15212829109952172
- |   +-- Artistic movements ~ 0.15212829109952172
- +-- Society and social sciences ~ 0.13352365637215666
- |   +-- General ~ 0.13973604120782718
- |   +-- Politics and government ~ 0.13498417545798852
- |   +-- Social issues ~ 0.12585075245065422
- +-- History ~ 0.1228191269614678
-     +-- History by region ~ 0.12432311591982381
-     +-- History by subject matter ~ 0.12131513800311178
+ +-- Mathematics ~ 0.0993756246619002
+ |   +-- Other ~ 0.09944645420034719
+ |   +-- Arithmetic ~ 0.0993047951234532
+ +-- History ~ 0.09932122839459406
+ |   +-- Post-classical history ~ 0.09939344609873874
+ |   +-- History by subject matter ~ 0.0992490106904494
+ +-- Technology ~ 0.09930023484792067
+ |   +-- Computing and information technology ~ 0.09940246773954364
+ |   +-- General ~ 0.09919800195629769
+ +-- Geography ~ 0.099271977035576
+ |   +-- General ~ 0.09935064012068967
+ |   +-- Continents and regions ~ 0.09919331395046231
+ +-- Society and social sciences ~ 0.09916934772113263
+     +-- General ~ 0.09918826756048632
+     +-- Social issues ~ 0.09915042788177894
+$ curl https://en.wikipedia.org/wiki/Age_of_Enlightenment | ./wikimark.py guess build
+similarity
+ +-- History ~ 0.09939241274306507
+ |   +-- Modern history ~ 0.10042636927477488
+ |   +-- History by subject matter ~ 0.09930107973217772
+ |   +-- History by region ~ 0.09911410256819446
+ |   +-- General ~ 0.0987280993971132
+ +-- Geography ~ 0.09891518376351204
+ |   +-- Continents and regions ~ 0.0989354199303044
+ |   +-- General ~ 0.09889494759671967
+ +-- Science ~ 0.09889482066567144
+ |   +-- General ~ 0.09889482066567144
+ +-- Technology ~ 0.09871997655793871
+ |   +-- General ~ 0.09871997655793871
+ +-- People ~ 0.09870483339781669
+ |   +-- Mathematicians ~ 0.09870483339781669
+ +-- Arts and culture ~ 0.09867058277473856
+     +-- Literature ~ 0.09867058277473856
 ```
 
 You can also use your own corpus.
@@ -81,7 +99,8 @@ and [scikit-learn](https://scikit-learn.org/).
 
 - A Doc2Vec embedding is built with the whole corpus.
 - Regression models for each subcategory is built using the Doc2Vec
-  embedding of the related documents using 1-vs-all strategy.
+  embedding of the related paragraphs of each documents using
+  1-vs-other strategy.
 
 The `wikimark.py guess` command will predict the score of the input
 document against each subcategory regression models.
