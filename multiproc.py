@@ -8,9 +8,12 @@ from gensim.models.doc2vec import Doc2Vec
 from wikimark import html2paragraph
 from wikimark import tokenize
 
+doc2vec = None
+regressions = None
 
-def process(args):
-    doc2vec, regressions, filepath = args
+
+def process(filepath):
+    global doc2vec, regressions
     with filepath.open('r') as f:
         string = f.read()
     subcategories = Counter()
@@ -29,6 +32,7 @@ def process(args):
 
 
 def main():
+    global doc2vec, regressions
     input = Path('./build')
     doc2vec = Doc2Vec.load(str(input / 'model.doc2vec.gz'))
     regressions = dict()
@@ -40,12 +44,7 @@ def main():
     examples = list(input.glob('../data/wikipedia/english/*'))
 
     with Pool() as pool:
-        iterable = zip(
-            [doc2vec] * len(examples),
-            [regressions] * len(examples),
-            examples
-        )
-        for filepath, subcategory in pool.imap_unordered(process, iterable):
+        for filepath, subcategory in pool.imap_unordered(process, examples):
             print('* {} -> {}'.format(filepath, subcategory))
 
 
