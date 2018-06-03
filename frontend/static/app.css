@@ -1,0 +1,20 @@
+#input {
+  background: #3498db;
+  padding: 50px 50px;
+  text-align: center;
+  margin-top: -32px;
+}
+
+#input input[type="text"] {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+#output {
+  background: #2980b9;
+  height: 500px;
+  font-size: 32px;
+  color: white;
+  padding: 50px;
+  text-align: center;
+}
