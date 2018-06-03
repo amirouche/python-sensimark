@@ -66,9 +66,8 @@ async def v0(request):
     # proceed
 
     # fetch the page
-    async with request.app['session'] as session:
-        async with session.get(url) as response:
-            string = await response.text()
+    async with request.app['session'].get(url) as response:
+        string = await response.text()
 
     # compute predictions
     subcategories = Counter()
