@@ -1,12 +1,9 @@
 [[source]]
-
 url = "https://pypi.python.org/simple"
 verify_ssl = true
 name = "pypi"
 
-
 [packages]
-
 lxml = "*"
 docopt = "*"
 requests = "*"
@@ -14,8 +11,9 @@ jupyter = "*"
 gensim = "*"
 scikit-learn = "*"
 asciitree = "*"
-
+aiohttp = "*"
+setproctitle = "*"
 
 [dev-packages]
-
 pytest = "*"
+aiohttp-devtools = "*"
