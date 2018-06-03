@@ -34,7 +34,7 @@ async def status(request):
 
 
 async def v0(request):
-    # validate
+    # validate url
     try:
         url = request.query['url']
     except KeyError:
@@ -44,11 +44,11 @@ async def v0(request):
         )
         return web.json_response(data, status=400)
     if re.match(REGEX_URL, url) is None:
-       data = dict(
+        data = dict(
             status='validation error',
             message='malformated url parameter'
         )
-       return web.json_response(data, status=400)
+        return web.json_response(data, status=400)
 
     # proceed
 
