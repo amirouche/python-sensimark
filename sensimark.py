@@ -6,7 +6,6 @@ from pathlib import Path
 from collections import Counter
 from collections import OrderedDict
 
-
 from aiohttp import ClientSession
 from aiohttp import web
 from gensim.models.doc2vec import Doc2Vec
