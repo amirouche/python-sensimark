@@ -122,7 +122,7 @@ async def v0(request):
                     prediction=prediction,
                 )
                 children[subcategory.name] = item_subcategory
-        item_category['children'] = children.values()
+        item_category['children'] = list(children.values())
         tree[name] = item_category
     # build output as a list to keep ordering
     out = list()
