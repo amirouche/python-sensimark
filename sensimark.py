@@ -114,7 +114,7 @@ async def v0(request):
             name=category.name,
             prediction=prediction
         )
-        item_category['children'] = children = OrderedDict()
+        children = OrderedDict()
         for subcategory, prediction in subcategories.items():
             if subcategory.parent == category:
                 item_subcategory = dict(
@@ -122,6 +122,7 @@ async def v0(request):
                     prediction=prediction,
                 )
                 children[subcategory.name] = item_subcategory
+        item_category['children'] = children.values()
         tree[name] = item_category
     # build output as a list to keep ordering
     out = list()
