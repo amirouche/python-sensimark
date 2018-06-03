@@ -34,6 +34,8 @@ async def status(request):
 
 
 async def v0(request):
+    # validate all
+    all = request.query.get('all', False)
     # validate url
     try:
         url = request.query['url']
@@ -47,6 +49,17 @@ async def v0(request):
         data = dict(
             status='validation error',
             message='malformated url parameter'
+        )
+        return web.json_response(data, status=400)
+
+    # validate top
+    top = request.query.get('top', 10)
+    try:
+        top = int(top)
+    except ValueError:
+        data = dict(
+            status='validation error',
+            message='top is not a number'
         )
         return web.json_response(data, status=400)
 
@@ -73,7 +86,8 @@ async def v0(request):
         value = math.exp(prediction / (index + 1))
         magic = ((value * 100) - 110) * 100
         subcategories[subcategory] = magic
-    total = len(subcategories)  # if all_subcategories else 10
+
+    total = len(subcategories) if all else top
     subcategories = OrderedDict(subcategories.most_common(total))
     # compute categories prediction
     categories = Counter()
