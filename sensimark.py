@@ -53,7 +53,7 @@ async def v0(request):
         return web.json_response(data, status=400)
 
     # validate top
-    top = request.query.get('top', 10)
+    top = request.query.get('top', 5)
     try:
         top = int(top)
     except ValueError:
