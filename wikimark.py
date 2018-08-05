@@ -329,5 +329,6 @@ if __name__ == '__main__':
         input = Path(args.get('INPUT'))
         with input.open() as f:
             out = html2paragraph(f.read())
+            print(json.dumps(out))
     else:
         raise Exception('Some command is not handled properly')
