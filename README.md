@@ -28,11 +28,42 @@ Science ~ 0.8
 Society ~ 0.4
 ```
 
+That is the goal of the project but were are not there yet or are we
+pushing forward the final frontier.
+
 # Getting started
+
+## Detecting language
+
+To get started we will use the algorithm to detect language:
 
 ```bash
 $ pipenv shell
-$ pipenv install
+$ pipenv install --dev
+$ ./wikimark.py process data/
+$ curl https://fr.wikipedia.org/wiki/Science | ./wikimark.py guess data/
+```
+
+Here is the output:
+
+```bash
+(sensimark-P02TGHgF) amirouche@ubujul18:~/src/python/sensimark$ curl https://fr.wikipedia.org/wiki/Science | ./wikimark.py guess data/
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  609k  100  609k    0     0   743k      0 --:--:-- --:--:-- --:--:--  742k
+similarity
+ +-- wikipedia ~ 0.4999974735532797
+     +-- french ~ 0.9002363895619202
+     +-- english ~ 0.09975855754463928
+```
+
+## Detecting Category and Sub-Category
+
+Based Wikipedia Vital Articles Level 3 Categories and Sub-Categories.
+
+```bash
+$ pipenv shell
+$ pipenv install  --dev
 $ mkdir build
 $ wikimark.py collect build
 $ wikimark.py process build
