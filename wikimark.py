@@ -2,7 +2,7 @@
 """Usage:
   wikimark.py collect OUTPUT
   wikimark.py process INPUT
-  wikimark.py guess [--all][--format=FORMAT] INPUT
+  wikimark.py guess [--all][--format=human|json] INPUT
   wikimark.py tool ngrams SIZE MIN INPUT
   wikimark.py tool html2paragraph INPUT
 """
