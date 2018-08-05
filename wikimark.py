@@ -320,7 +320,7 @@ if __name__ == '__main__':
         if switch == 'human':
             print(LeftAligned()(out))
         elif switch == 'json':
-            print(json.dumps(out))
+            print(json.dumps(out, indent=True))
         else:
             RuntimeError('Something requires amirouche code assistance https://github.com/amirouche/sensimark?')
     elif args.get('tool') and args.get('ngrams'):
@@ -329,6 +329,6 @@ if __name__ == '__main__':
         input = Path(args.get('INPUT'))
         with input.open() as f:
             out = html2paragraph(f.read())
-            print(json.dumps(out))
+            print(json.dumps(out, indent=True))
     else:
         raise Exception('Some command is not handled properly')
