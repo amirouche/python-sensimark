@@ -316,7 +316,7 @@ if __name__ == '__main__':
         out = process(args.get('INPUT'))
     elif args.get('guess'):
         out = guess(args.get('INPUT'), args.get('--all', False))
-        switch = args.get('--format', 'human')
+        switch = args.get('--format', 'human') or 'human'
         if switch == 'human':
             print(LeftAligned()(out))
         elif switch == 'json':
