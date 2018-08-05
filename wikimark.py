@@ -2,7 +2,7 @@
 """Usage:
   wikimark.py collect OUTPUT
   wikimark.py process INPUT
-  wikimark.py guess [--all] INPUT
+  wikimark.py guess [--all][--format=FORMAT] INPUT
   wikimark.py tool ngrams SIZE MIN INPUT
   wikimark.py tool html2paragraph INPUT
 """
@@ -265,7 +265,7 @@ def guess(input, all_subcategories):
             if subcategory.parent == category:
                 children['{} ~ {}'.format(subcategory.name, prediction)] = dict()  # noqa
         tree[name] = children
-    print(LeftAligned()(dict(similarity=tree)))
+    return dict(similarity=tree)
 
 
 def file_ngrams(size, file):
@@ -309,18 +309,25 @@ def ngrams(size, min, input):
 
 if __name__ == '__main__':
     args = docopt(__doc__)
+    # print(args)
     if args.get('collect'):
         collect(args.get('OUTPUT'))
     elif args.get('process'):
-        process(args.get('INPUT'))
+        out = process(args.get('INPUT'))
     elif args.get('guess'):
-        guess(args.get('INPUT'), args.get('--all', False))
+        out = guess(args.get('INPUT'), args.get('--all', False))
+        switch = args.get('--format', 'human')
+        if switch == 'human':
+            print(LeftAligned()(out))
+        elif switch == 'json':
+            print(json.dumps(out))
+        else:
+            RuntimeError('Something requires amirouche code assistance https://github.com/amirouche/sensimark?')
     elif args.get('tool') and args.get('ngrams'):
         ngrams(int(args.get('SIZE')), int(args.get('MIN')), args.get('INPUT'))
     elif args.get('tool') and args.get('html2paragraph'):
         input = Path(args.get('INPUT'))
         with input.open() as f:
             out = html2paragraph(f.read())
-        print(out.stringify())
     else:
         raise Exception('Some command is not handled properly')
