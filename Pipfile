@@ -17,3 +17,4 @@ setproctitle = "*"
 [dev-packages]
 pytest = "*"
 aiohttp-devtools = "*"
+ipdb = "*"
