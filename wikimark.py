@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 """Usage:
   wikimark.py collect OUTPUT
+  wikimark.py fasttext prepare INPUT OUTPUT
+  wikimark.py fasttext train INPUT OUTPUT
+  wikimark.py fasttext guess INPUT
   wikimark.py process INPUT
   wikimark.py guess [--all][--format=human|json] INPUT
   wikimark.py tool ngrams SIZE MIN INPUT
@@ -18,7 +21,6 @@ from pathlib import Path
 from string import punctuation
 from urllib.parse import quote_plus
 
-
 import requests
 from asciitree import LeftAligned
 from docopt import docopt
@@ -30,7 +32,6 @@ from sklearn import svm
 
 
 # lxml helper
-
 
 def get_children(xml):
     """List children ignoring comments"""
@@ -307,11 +308,64 @@ def ngrams(size, min, input):
 
 
 
+def fasttext_iter_all_documents(input):
+    import syntok.segmenter as segmenter
+    for article in input.glob('./*/*/*'):
+        label = '__label__' + '-'.join(tokenize('-'.join(str(article).split('/')[1:3])))
+        print('* handling {} for {}'.format(article, label))
+
+        with article.open() as f:
+            string = f.read()
+        paragraphs = '\n\n'.join(html2paragraph(string))
+        paragraphs = segmenter.process(paragraphs)
+        for paragraph in paragraphs:
+            for sentence in paragraph:
+                sentence = ' '.join(token.value for token in sentence)
+                yield label, sentence
+
+
+def fasttext_prepare(input, output):
+    with Path(output).open('w') as f:
+        for label, phrase in fasttext_iter_all_documents(Path(input)):
+            f.write('{} {}\n'.format(label, phrase))
+
+
+def fasttext_train(input, output):
+    import fastText as ft
+    model = ft.train_supervised(input=input)
+    model.save_model(output)
+
+def fasttext_guess(input):
+    import fastText as ft
+    import syntok.segmenter as segmenter
+    model = ft.load_model(input)
+    string = string = sys.stdin.read()
+    paragraphs = '\n\n'.join(html2paragraph(string))
+    paragraphs = segmenter.process(paragraphs)
+    counter = Counter()
+    for paragraph in paragraphs:
+        for sentence in paragraph:
+            sentence = ' '.join(token.value for token in sentence)
+            out = model.predict(sentence, 75)  # number of labels
+            out = {out[0][i]: out[1][i] for i in range(75)}
+            counter = counter + Counter(out)
+    for key, value in counter.most_common(10):
+        print('{}\t\t{}'.format(key, value))
+
+
 if __name__ == '__main__':
     args = docopt(__doc__)
     # print(args)
+
     if args.get('collect'):
         collect(args.get('OUTPUT'))
+    elif args.get('fasttext'):
+        if args.get('prepare'):
+            fasttext_prepare(args.get('INPUT'), args.get('OUTPUT'))
+        if args.get('train'):
+            fasttext_train(args.get('INPUT'), args.get('OUTPUT'))
+        if args.get('guess'):
+            fasttext_guess(args.get('INPUT'))
     elif args.get('process'):
         out = process(args.get('INPUT'))
     elif args.get('guess'):

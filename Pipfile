@@ -13,6 +13,8 @@ scikit-learn = "*"
 asciitree = "*"
 aiohttp = "*"
 setproctitle = "*"
+segtok = "*"
+syntok = "*"
 
 [dev-packages]
 pytest = "*"
