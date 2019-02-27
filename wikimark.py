@@ -332,7 +332,7 @@ def fasttext_prepare(input, output):
 
 def fasttext_train(input, output):
     import fastText as ft
-    model = ft.train_supervised(input=input)
+    model = ft.train_supervised(input=input, dim=300, pretrainedVectors='wiki-news-300d-1M-subword.vec')
     model.save_model(output)
 
 def fasttext_guess(input):
@@ -346,8 +346,8 @@ def fasttext_guess(input):
     for paragraph in paragraphs:
         for sentence in paragraph:
             sentence = ' '.join(token.value for token in sentence)
-            out = model.predict(sentence, 75)  # number of labels
-            out = {out[0][i]: out[1][i] for i in range(75)}
+            out = model.predict(sentence, 73)  # number of labels
+            out = {out[0][i]: out[1][i] for i in range(73)}
             counter = counter + Counter(out)
     for key, value in counter.most_common(10):
         print('{}\t\t{}'.format(key, value))
