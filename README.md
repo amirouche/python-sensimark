@@ -1,6 +1,6 @@
-# wikimark -- get a sens of it
+# sensimark -- get a sens of it
 
-wikimark goal is to give you an idea of what the text is about.
+sensimark goal is to give you an idea of what the text is about.
 
 **It's not evaluated. It gives sensible results but I am not sure it's
 the right approach**
@@ -10,7 +10,7 @@ the right approach**
 Given a text it return dictionary made of wikipedia categories, e.g.:
 
 ```python
-out = wikimark("""Peter Hintjens wrote about the relation between technology and culture.
+out = sensimark("""Peter Hintjens wrote about the relation between technology and culture.
 Without using a scientifical tone of state-of-the-art review of the anthroposcene antropology,
 he gives a fair amount of food for thought. According to Hintjens, technology is doomed to
 become cheap. As matter of fact, intelligence tools will become more and more accessible which
@@ -126,7 +126,7 @@ You can also use your own corpus.
 
 # How?
 
-wikimark use [gensim](https://radimrehurek.com/gensim/)
+sensimark use [gensim](https://radimrehurek.com/gensim/)
 and [scikit-learn](https://scikit-learn.org/).
 
 - A Doc2Vec embedding is built with the whole corpus.
