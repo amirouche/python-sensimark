@@ -102,8 +102,11 @@ def _vital2orgmode(node):
         text = node.text_content().strip().replace('[edit]', '')
         if text == 'Contents':
             return
-        parens = text.index('(')
-        if parens:
+        try:
+            parens = text.index('(')
+        except ValueError:
+            pass
+        else:
             text = text[:parens]
         msg = '{} {}'.format(prefix, text)
         print(msg)
