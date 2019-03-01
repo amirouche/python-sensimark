@@ -3,25 +3,31 @@
   wikimark.py collect OUTPUT
   wikimark.py fasttext prepare INPUT OUTPUT
   wikimark.py fasttext train INPUT OUTPUT
-  wikimark.py fasttext guess INPUT
-  wikimark.py process INPUT
-  wikimark.py guess [--all][--format=human|json] INPUT
+  wikimark.py fasttext estimate INPUT
+  wikimark.py v1 train INPUT
+  wikimark.py v1 estimate [--all][--format=human|json] INPUT
+  wikimark.py v2 prepare INPUT OUTPUT
+  wikimark.py v2 train INPUT
+  wikimark.py v2 estimate INPUT
   wikimark.py tool ngrams SIZE MIN INPUT
   wikimark.py tool html2paragraph INPUT
   wikimark.py tool vital2orgmode
 """
 import json
+import logging
 import pickle
 import re
 import sys
 from collections import Counter
 from collections import OrderedDict
+from functools import lru_cache
 from multiprocessing import Pool
 from multiprocessing import cpu_count
 from pathlib import Path
 from string import punctuation
 from urllib.parse import quote_plus
 
+import daiquiri
 import requests
 from asciitree import LeftAligned
 from docopt import docopt
@@ -30,9 +36,13 @@ from gensim.models.doc2vec import Doc2Vec
 from lxml import html
 from lxml.html.clean import clean_html
 from sklearn import svm
+from sklearn import preprocessing
 import snowballstemmer
 from wordfreq import top_n_list
 
+
+daiquiri.setup(level=logging.INFO, outputs=("stderr",))
+log = logging.getLogger(__name__)
 
 stem = snowballstemmer.stemmer("english").stemWord
 GARBAGE_TO_SPACE = dict.fromkeys((ord(x) for x in punctuation), " ")
@@ -161,6 +171,15 @@ def html2paragraph(string):
     return out
 
 
+@lru_cache(maxsize=None)
+def filepath2paragraphs_of_tokens(filepath):
+    log.debug('filepath2paragraphs_of_tokens: %s', filepath)
+    with filepath.open() as f:
+        paragraphs = html2paragraph(f.read())
+    out = [tokenize(p) for p in paragraphs]
+    return out
+
+
 # core
 
 REST_API = 'https://en.wikipedia.org/api/rest_v1/page/html/'
@@ -238,23 +257,27 @@ def collect(output):
 
 
 def iter_all_documents(input):
-    for article in input.glob('./*/*/*'):
-        print('Doc2Vec: Preprocessing "{}"'.format(article))
-        with article.open() as f:
-            string = f.read()
-        for index, paragraph in enumerate(html2paragraph(string)):
-            tokens = tokenize(paragraph)
-            tag = '{} #{}'.format(article, index)
+    for filepath in input.glob('./*/*/*'):
+        log.debug('Doc2Vec: Preprocessing "{}"'.format(filepath))
+        if str(filepath).endswith('.model'):
+            continue
+        for index, tokens in enumerate(filepath2paragraphs_of_tokens(filepath)):
+            tag = '{} #{}'.format(filepath, index)
             yield TaggedDocument(tokens, [tag])
 
 
-def make_dov2vec_model(input):
-    documents = list(iter_all_documents(input))
-    print('Doc2Vec: building the model')
-    model = Doc2Vec(documents, vector_size=100, window=8, min_count=2, workers=7)  # noqa
-    filepath = input / 'model.doc2vec.gz'
-    model.save(str(filepath))
-    return model
+def make_doc2vec_model(input):
+    filepath = input / 'doc2vec.model'
+    if filepath.is_file():
+        log.warning('Loading previous doc2vec.model: %s', filepath)
+        out = Doc2Vec.load(str(filepath))
+        return out
+    else:
+        documents = list(iter_all_documents(input))
+        log.info('Doc2Vec: building the model')
+        out = Doc2Vec(documents, vector_size=300, window=8, min_count=2, workers=5)  # noqa
+        out.save(str(filepath))
+        return out
 
 
 def iter_filepath_and_vectors(input, doc2vec):
@@ -290,11 +313,10 @@ def regression(args):
         pickle.dump(model, f)
 
 
-def process(input):
+def train(input):
     input = Path(input)
-    print('Doc2Vec preprocessing')
-    doc2vec = make_dov2vec_model(input)
-    # doc2vec = Doc2Vec.load(str(input / 'model.doc2vec.gz'))
+    print('doc2vec training')
+    doc2vec = make_doc2vec_model(input)
     print('Regression model computation')
     pool = Pool(cpu_count() - 2)
     subcategories = list(input.glob('./*/*/'))
@@ -304,10 +326,10 @@ def process(input):
         pass
 
 
-def guess(input, all_subcategories):
+def estimate(input, all_subcategories):
     input = Path(input)
     string = sys.stdin.read()
-    doc2vec = Doc2Vec.load(str(input / 'model.doc2vec.gz'))
+    doc2vec = Doc2Vec.load(str(input / 'doc2vec.model'))
     subcategories = Counter()
     for index, paragraph in enumerate(html2paragraph(string)):
         tokens = tokenize(paragraph)
@@ -390,6 +412,7 @@ def ngrams(size, min, input):
             print('** count("{}") == {}'.format(ngram, count))
 
 
+# fast text
 
 def fasttext_iter_all_documents(input):
     import syntok.segmenter as segmenter
@@ -418,7 +441,7 @@ def fasttext_train(input, output):
     model = ft.train_supervised(input=input, dim=300, pretrainedVectors='wiki-news-300d-1M-subword.vec')
     model.save_model(output)
 
-def fasttext_guess(input):
+def fasttext_estimate(input):
     import fastText as ft
     import syntok.segmenter as segmenter
     model = ft.load_model(input)
@@ -436,6 +459,123 @@ def fasttext_guess(input):
         print('{}\t\t{}'.format(key, value))
 
 
+def v2_train(path):
+    # from sklearn.model_selection import train_test_split
+    from sklearn.linear_model import SGDClassifier
+    input = output = Path(path).resolve()
+    log.info('doc2vec training')
+    doc2vec = make_doc2vec_model(input)
+    log.info('infer vectors')  # TODO: Pool.map ordered
+    nodes = sorted(list(input.glob('./**/')))
+    X, y = [], []
+    log.info('There is %r nodes...', len(nodes))
+    for index, node in enumerate(nodes):
+        filepaths = node.glob('./**/*')
+        for filepath in filepaths:
+            if '.model' in str(filepath):
+                continue
+            if filepath.is_dir():
+                continue
+            log.debug('infer vectors for: %s', filepath)
+            paragraphs = filepath2paragraphs_of_tokens(filepath)
+            for tokens in paragraphs:
+                vector = doc2vec.infer_vector(tokens)
+                X.append(vector)
+                y.append(index)
+    #
+    log.info('train global estimator')
+    # train the estimator on all nodes aka. global_estimator
+    global_estimator = SGDClassifier(loss="log", penalty="l2", max_iter=5)
+    X_scaled = preprocessing.scale(X)
+    global_estimator.fit(X, y)
+    with (output / 'global.model').open('wb') as f:
+        pickle.dump(global_estimator, f)
+
+    # XXX: THIS IS GARBAGE
+    # log.critical('train leaf estimator')
+    # # train estimator score of leaf nodes aka. leaf_estimator
+    # X_leaf_estimator = []
+    # X_train_leaf_estimations = global_estimator.predict_proba(X_train_leaf)
+    # leaf_estimator = SGDClassifier(loss="log", penalty="l2", max_iter=5)
+    # leaf_estimator.fit(X_train_leaf_estimations, y_train_leaf)
+    # with (output / 'leaf.model').open('wb') as f:
+    #     pickle.dump(leaf_estimator, f)
+
+
+def v2_estimate(input):
+    input = Path(input).resolve()
+    log.info('Infering vectors of html input on stdin...')
+    string = sys.stdin.read()
+    doc2vec = make_doc2vec_model(input)
+    paragraphs = html2paragraph(string)
+    vectors = []
+    for index, paragraph in enumerate(paragraphs):
+        tokens = tokenize(paragraph)
+        vector = doc2vec.infer_vector(tokens)
+        vectors.append(vector)
+    log.info('Loading models.')
+    with (input / 'global.model').open('rb') as f:
+        global_estimator = pickle.load(f)
+    # with (input / 'leaf.model').open('rb') as f:
+    #     leaf_estimator = pickle.load(f)
+    nodes = sorted(list(input.glob('./**/')))
+    log.critical('There is %r nodes...', len(nodes))
+    log.info('Global estimation...')
+    global_estimations = global_estimator.predict_proba(vectors)
+    # XXX: THIS IS GARBAGE TOO
+    #for estimation in global_estimations:
+    #    log.critical('global: %r', len(estimation))
+    #log.info('Leaf estimation...')
+    #leaf_estimations = leaf_estimator.predict_proba(global_estimations)
+    log.info('Checkout each index score')
+    counter = Counter()
+    for estimation in global_estimations:
+        new = Counter(dict(list(enumerate(estimation))))
+        counter = counter + new
+    log.info('Checkout each filepath score')
+    scores = Counter()
+    for index, score in counter.items():
+        filepath = nodes[index]
+        scores[filepath] = score
+    subcategories = Counter()
+    #
+    for subcategory in input.glob('./*/*/') :
+        subcategories[subcategory] = scores[subcategory]
+    # keep only the revelant categories
+    # total = len(subcategories) if all_subcategories else 10
+    total = 10 # len(subcategories)
+    subcategories = OrderedDict(subcategories.most_common(total))
+    categories = Counter()
+    for category in input.glob('./*/'):
+        # skip anything that is not a directory
+        if not category.is_dir():
+            continue
+        # compute mean score for the category
+        count = 0
+        for subcategory, prediction in subcategories.items():
+            if subcategory.parent == category:
+                count += 1
+                categories[category] += prediction
+        if count:
+            mean = categories[category] / count
+            categories[category] = scores[category]
+        else:
+            del categories[category]
+    # build and print tree
+    tree = OrderedDict()
+    for category, prediction in categories.most_common(len(categories)):
+        name = '{} ~ {}'.format(category.name, prediction)
+        children = OrderedDict()
+        for subcategory, prediction in subcategories.items():
+            if subcategory.parent == category:
+                children['{} ~ {}'.format(subcategory.name, prediction)] = dict()  # noqa
+        tree[name] = children
+    out = dict(similarity=tree)
+    print(LeftAligned()(out))
+
+
+
+
 if __name__ == '__main__':
     args = docopt(__doc__)
     # print(args)
@@ -447,19 +587,27 @@ if __name__ == '__main__':
             fasttext_prepare(args.get('INPUT'), args.get('OUTPUT'))
         if args.get('train'):
             fasttext_train(args.get('INPUT'), args.get('OUTPUT'))
-        if args.get('guess'):
-            fasttext_guess(args.get('INPUT'))
-    elif args.get('process'):
-        out = process(args.get('INPUT'))
-    elif args.get('guess'):
-        out = guess(args.get('INPUT'), args.get('--all', False))
-        switch = args.get('--format', 'human') or 'human'
-        if switch == 'human':
-            print(LeftAligned()(out))
-        elif switch == 'json':
-            print(json.dumps(out, indent=True))
-        else:
-            RuntimeError('Something requires amirouche code assistance https://github.com/amirouche/sensimark?')
+        if args.get('estimate'):
+            fasttext_estimate(args.get('INPUT'))
+    elif args.get('v1'):
+        if args.get('train'):
+            out = train(args.get('INPUT'))
+        elif args.get('estimate'):
+            out = estimate(args.get('INPUT'), args.get('--all', False))
+            switch = args.get('--format', 'human') or 'human'
+            if switch == 'human':
+                print(LeftAligned()(out))
+            elif switch == 'json':
+                print(json.dumps(out, indent=True))
+            else:
+                RuntimeError('Something requires amirouche code assistance https://github.com/amirouche/sensimark?')
+    elif args.get('v2'):
+        if args.get('prepare'):
+            v2_prepare(args.get('INPUT'), args.get('OUTPUT'))
+        if args.get('train'):
+            v2_train(args.get('INPUT'))
+        if args.get('estimate'):
+            v2_estimate(args.get('INPUT'))
     elif args.get('tool') and args.get('ngrams'):
         ngrams(int(args.get('SIZE')), int(args.get('MIN')), args.get('INPUT'))
     elif args.get('tool') and args.get('html2paragraph'):

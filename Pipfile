@@ -17,6 +17,8 @@ segtok = "*"
 syntok = "*"
 snowballstemmer = "*"
 wordfreq = "*"
+daiquiri = "*"
+debug = "*"
 
 [dev-packages]
 pytest = "*"
