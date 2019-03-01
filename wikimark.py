@@ -29,6 +29,40 @@ from gensim.models.doc2vec import Doc2Vec
 from lxml import html
 from lxml.html.clean import clean_html
 from sklearn import svm
+import snowballstemmer
+from wordfreq import top_n_list
+
+
+stem = snowballstemmer.stemmer("english").stemWord
+GARBAGE_TO_SPACE = dict.fromkeys((ord(x) for x in punctuation), " ")
+STOP_WORDS = set(top_n_list("en", 800))
+
+
+WORD_MIN_LENGTH = 2
+WORD_MAX_LENGTH = 64  # sha2 length
+
+
+def sane(word):
+    return WORD_MIN_LENGTH <= len(word) <= WORD_MAX_LENGTH
+
+
+def string2words(string):
+    """Converts a string to a list of words.
+
+    Removes punctuation, lowercase, words strictly smaller than 2 and strictly bigger than 64
+    characters
+
+    Returns a set.
+    """
+    clean = string.translate(GARBAGE_TO_SPACE).lower()
+    words = set(word for word in clean.split() if sane(word))
+    return words
+
+
+def tokenize(string):
+    words = string2words(string)
+    tokens = [stem(word) for word in words if word not in STOP_WORDS]
+    return tokens
 
 
 # lxml helper
@@ -77,14 +111,6 @@ INPUT = REST_API + 'Wikipedia%3AVital_articles'
 
 
 REGEX_TITLE = re.compile(r'[^(]+')
-
-
-def tokenize(string):
-    # strip punctuation
-    clean = ''.join([' ' if c in punctuation else c for c in string]).split()
-    # remove words smaller than 3
-    tokens = [e for e in (' '.join(clean)).lower().split() if len(e) > 2]
-    return tokens
 
 
 def extract_subcategory(section):
