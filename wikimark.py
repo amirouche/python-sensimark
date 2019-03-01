@@ -239,7 +239,7 @@ def process(input):
     doc2vec = make_dov2vec_model(input)
     # doc2vec = Doc2Vec.load(str(input / 'model.doc2vec.gz'))
     print('Regression model computation')
-    pool = Pool(cpu_count() - 1)
+    pool = Pool(cpu_count() - 2)
     subcategories = list(input.glob('./*/*/'))
     doc2vecs = [doc2vec] * len(subcategories)
     generator = pool.imap_unordered(regression, zip(doc2vecs, subcategories), chunksize=3)  # noqa
