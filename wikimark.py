@@ -194,7 +194,7 @@ def regression(args):
         return
     # build regression model for the subcategory
     print('Building regression for "{}"'.format(subcategory))
-    model = svm.SVR()
+    model = svm.SVR(gamma='scale')
     X = list()
     y = list()
     input = subcategory.parent.parent
