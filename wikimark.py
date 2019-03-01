@@ -8,6 +8,7 @@
   wikimark.py guess [--all][--format=human|json] INPUT
   wikimark.py tool ngrams SIZE MIN INPUT
   wikimark.py tool html2paragraph INPUT
+  wikimark.py tool vital2orgmode
 """
 import json
 import pickle
@@ -70,6 +71,59 @@ def tokenize(string):
 def get_children(xml):
     """List children ignoring comments"""
     return [e for e in xml.iterchildren() if not isinstance(e, html.HtmlComment)]  # noqa
+
+
+# vital2orgmode
+
+def skip(href):
+    if not href.startswith('/wiki/'):
+        return True
+    if href.startswith('/wiki/Wikipedia:'):
+        return True
+    if href.startswith('/wiki/User:'):
+        return True
+    if href.startswith('/wiki/Template:'):
+        return True
+    if href.startswith('/wiki/Template_talk:'):
+        return True
+    if href.startswith('/wiki/Portal:'):
+        return True
+    if href.startswith('/wiki/Special:'):
+        return True
+
+
+
+def _vital2orgmode(node):
+    if isinstance(node, html.HtmlComment):
+        return
+    elif node.tag[0] == 'h':
+        level = int(node.tag[1])
+        prefix = '*' * level
+        text = node.text_content().strip().replace('[edit]', '')
+        if text == 'Contents':
+            return
+        parens = text.index('(')
+        if parens:
+            text = text[:parens]
+        msg = '{} {}'.format(prefix, text)
+        print(msg)
+    elif node.tag == 'a':
+        if node.attrib.get('href') is None:
+            return
+        href = node.attrib['href']
+        if skip(href):
+            return
+        msg = "******* {}{}".format(REST_API, href[6:])
+        print(msg)
+    else:
+        for child in node.iterchildren():
+            _vital2orgmode(child)
+
+
+def vital2orgmode(string):
+    """Convert vital hierarchy to orgmode file."""
+    body = html.fromstring(string).xpath('//div[@id="mw-content-text"]')[0]
+    _vital2orgmode(body)
 
 
 # html2paragraph
@@ -410,5 +464,8 @@ if __name__ == '__main__':
         with input.open() as f:
             out = html2paragraph(f.read())
             print(json.dumps(out, indent=True))
+    elif args.get('tool') and args.get('vital2orgmode'):
+        string = sys.stdin.read()
+        vital2orgmode(string)
     else:
-        raise Exception('Some command is not handled properly')
+        raise Exception('Programming error: some command is not handled properly')
