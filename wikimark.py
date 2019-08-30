@@ -600,7 +600,7 @@ if __name__ == '__main__':
             elif switch == 'json':
                 print(json.dumps(out, indent=True))
             else:
-                RuntimeError('Something requires amirouche code assistance https://github.com/amirouche/sensimark?')
+                RuntimeError('Something requires assistance https://github.com/amirouche/sensimark?')
     elif args.get('v2'):
         if args.get('prepare'):
             v2_prepare(args.get('INPUT'), args.get('OUTPUT'))
