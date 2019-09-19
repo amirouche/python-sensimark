@@ -606,6 +606,7 @@ def v3_train(path):
             paragraphs = filepath2paragraphs(filepath)
             for paragraph in paragraphs:
                 paragraph = nlp(paragraph)
+                X.append(filepath)
                 y.append(paragraph.vector)
     log.info('train global estimator')
     # train the estimator on all nodes aka. global_estimator
