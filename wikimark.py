@@ -9,6 +9,8 @@
   wikimark.py v2 prepare INPUT OUTPUT
   wikimark.py v2 train INPUT
   wikimark.py v2 estimate INPUT
+  wikimark.py v3 train INPUT
+  wikimark.py v3 estimate INPUT
   wikimark.py tool ngrams SIZE MIN INPUT
   wikimark.py tool html2paragraph INPUT
   wikimark.py tool vital2orgmode
@@ -177,6 +179,13 @@ def filepath2paragraphs_of_tokens(filepath):
     with filepath.open() as f:
         paragraphs = html2paragraph(f.read())
     out = [tokenize(p) for p in paragraphs]
+    return out
+
+
+def filepath2paragraphs(filepath):
+    log.info('filepath2paragraphs: %s', filepath)
+    with filepath.open() as f:
+        out = html2paragraph(f.read())
     return out
 
 
@@ -576,6 +585,36 @@ def v2_estimate(input):
 
 
 
+def v3_train(path):
+    import spacy
+    from sklearn.linear_model import SGDClassifier
+    input = output = Path(path).resolve()
+    log.info('spacy init')
+    nlp = spacy.load('en_core_web_lg')
+    log.info('infer vectors')
+    nodes = sorted(list(input.glob('./**/')))
+    X, y = [], []
+    log.info('There is %r nodes...', len(nodes))
+    for index, node in enumerate(nodes):
+        filepaths = node.glob('./**/*')
+        for filepath in filepaths:
+            if '.model' in str(filepath):
+                continue
+            if filepath.is_dir():
+                continue
+            log.debug('infer vectors for: %s', filepath)
+            paragraphs = filepath2paragraphs(filepath)
+            for paragraph in paragraphs:
+                paragraph = nlp(paragraph)
+                y.append(paragraph.vector)
+    log.info('train global estimator')
+    # train the estimator on all nodes aka. global_estimator
+    global_estimator = SGDClassifier(loss="log", penalty="l2", max_iter=5)
+    global_estimator.fit(X, y)
+    with (output / 'global.model').open('wb') as f:
+        pickle.dump(global_estimator, f)
+
+
 if __name__ == '__main__':
     args = docopt(__doc__)
     # print(args)
@@ -601,6 +640,9 @@ if __name__ == '__main__':
                 print(json.dumps(out, indent=True))
             else:
                 RuntimeError('Something requires assistance https://github.com/amirouche/sensimark?')
+    elif args.get('v3'):
+        if args.get('train'):
+            v3_train(args.get('INPUT'))
     elif args.get('v2'):
         if args.get('prepare'):
             v2_prepare(args.get('INPUT'), args.get('OUTPUT'))

@@ -19,6 +19,7 @@ snowballstemmer = "*"
 wordfreq = "*"
 daiquiri = "*"
 debug = "*"
+spacy = "*"
 
 [dev-packages]
 pytest = "*"
