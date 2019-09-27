@@ -542,10 +542,14 @@ def v2_estimate(input):
         new = Counter(dict(list(enumerate(estimation))))
         counter = counter + new
     log.info('Checkout each filepath score')
-    scores = Counter()
+    scores = list()
+    filepaths = list()
     for index, score in counter.items():
         filepath = nodes[index]
-        scores[filepath] = score
+        filepaths.append(filepath)
+        scores.append(score)
+    scores = preprocessing.scale(scores)
+    scores = Counter(zip(filepaths, scores))
     subcategories = Counter()
     #
     for subcategory in input.glob('./*/*/') :
@@ -642,45 +646,16 @@ def v3_estimate(input):
         new = Counter(dict(list(enumerate(estimation))))
         counter = counter + new
     log.info('Checkout each filepath score')
-    scores = Counter()
+    scores = list()
+    filepaths = list()
     for index, score in counter.items():
         filepath = nodes[index]
-        scores[filepath] = score
-    subcategories = Counter()
-    #
-    for subcategory in input.glob('./*/*/') :
-        subcategories[subcategory] = scores[subcategory]
-    # keep only the revelant categories
-    # total = len(subcategories) if all_subcategories else 10
-    total = 10 # len(subcategories)
-    subcategories = OrderedDict(subcategories.most_common(total))
-    categories = Counter()
-    for category in input.glob('./*/'):
-        # skip anything that is not a directory
-        if not category.is_dir():
-            continue
-        # compute mean score for the category
-        count = 0
-        for subcategory, prediction in subcategories.items():
-            if subcategory.parent == category:
-                count += 1
-                categories[category] += prediction
-        if count:
-            mean = categories[category] / count
-            categories[category] = scores[category]
-        else:
-            del categories[category]
-    # build and print tree
-    tree = OrderedDict()
-    for category, prediction in categories.most_common(len(categories)):
-        name = '{} ~ {}'.format(category.name, prediction)
-        children = OrderedDict()
-        for subcategory, prediction in subcategories.items():
-            if subcategory.parent == category:
-                children['{} ~ {}'.format(subcategory.name, prediction)] = dict()  # noqa
-        tree[name] = children
-    out = dict(similarity=tree)
-    print(LeftAligned()(out))
+        filepaths.append(filepath)
+        scores.append(score)
+    scores = preprocessing.scale(scores)
+    scores = sorted(zip(filepaths, scores), key=lambda x: x[1])
+    for category, score in scores:
+        print(category, ' ~ ', score)
 
 
 if __name__ == '__main__':
