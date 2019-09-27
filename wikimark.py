@@ -594,10 +594,11 @@ def v3_train(path):
     log.info('spacy init')
     nlp = spacy.load('en_core_web_lg')
     log.info('infer vectors')
-    nodes = sorted(list(input.glob('./**/')))
-    nodes = nodes[1:]
-    X, y = [], []
+    nodes = sorted(list(input.glob('./*/')))
     log.info('There is %r nodes...', len(nodes))
+    for node in nodes:
+        log.info('%r', node)
+    X, y = [], []
     for index, node in enumerate(nodes):
         filepaths = node.glob('./**/*')
         for filepath in filepaths:
@@ -635,8 +636,7 @@ def v3_estimate(input):
     log.info('Loading global.model')
     with (input / 'global.model').open('rb') as f:
         global_estimator = pickle.load(f)
-    nodes = sorted(list(input.glob('./**/')))
-    nodes = nodes[1:]
+    nodes = sorted(list(input.glob('./*/')))
     log.critical('There is %r nodes...', len(nodes))
     log.info('Global estimation...')
     global_estimations = global_estimator.predict_proba(vectors)
