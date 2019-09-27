@@ -583,8 +583,6 @@ def v2_estimate(input):
     print(LeftAligned()(out))
 
 
-
-
 def v3_train(path):
     import spacy
     from sklearn.linear_model import SGDClassifier
@@ -593,6 +591,7 @@ def v3_train(path):
     nlp = spacy.load('en_core_web_lg')
     log.info('infer vectors')
     nodes = sorted(list(input.glob('./**/')))
+    nodes = nodes[1:]
     X, y = [], []
     log.info('There is %r nodes...', len(nodes))
     for index, node in enumerate(nodes):
@@ -606,14 +605,82 @@ def v3_train(path):
             paragraphs = filepath2paragraphs(filepath)
             for paragraph in paragraphs:
                 paragraph = nlp(paragraph)
-                X.append(filepath)
-                y.append(paragraph.vector)
+                y.append(index)
+                X.append(paragraph.vector)
     log.info('train global estimator')
     # train the estimator on all nodes aka. global_estimator
     global_estimator = SGDClassifier(loss="log", penalty="l2", max_iter=5)
     global_estimator.fit(X, y)
     with (output / 'global.model').open('wb') as f:
         pickle.dump(global_estimator, f)
+
+
+def v3_estimate(input):
+    input = Path(input).resolve()
+    import spacy
+    from sklearn.linear_model import SGDClassifier
+    log.info('spacy init')
+    nlp = spacy.load('en_core_web_lg')
+    log.info('Infering vectors of html input on stdin...')
+    string = sys.stdin.read()
+    paragraphs = html2paragraph(string)
+    vectors = []
+    for index, paragraph in enumerate(paragraphs):
+        paragraph = nlp(paragraph)
+        vectors.append(paragraph.vector)
+    log.info('Loading global.model')
+    with (input / 'global.model').open('rb') as f:
+        global_estimator = pickle.load(f)
+    nodes = sorted(list(input.glob('./**/')))
+    nodes = nodes[1:]
+    log.critical('There is %r nodes...', len(nodes))
+    log.info('Global estimation...')
+    global_estimations = global_estimator.predict_proba(vectors)
+    log.info('Checkout each index score')
+    counter = Counter()
+    for estimation in global_estimations:
+        new = Counter(dict(list(enumerate(estimation))))
+        counter = counter + new
+    log.info('Checkout each filepath score')
+    scores = Counter()
+    for index, score in counter.items():
+        filepath = nodes[index]
+        scores[filepath] = score
+    subcategories = Counter()
+    #
+    for subcategory in input.glob('./*/*/') :
+        subcategories[subcategory] = scores[subcategory]
+    # keep only the revelant categories
+    # total = len(subcategories) if all_subcategories else 10
+    total = 10 # len(subcategories)
+    subcategories = OrderedDict(subcategories.most_common(total))
+    categories = Counter()
+    for category in input.glob('./*/'):
+        # skip anything that is not a directory
+        if not category.is_dir():
+            continue
+        # compute mean score for the category
+        count = 0
+        for subcategory, prediction in subcategories.items():
+            if subcategory.parent == category:
+                count += 1
+                categories[category] += prediction
+        if count:
+            mean = categories[category] / count
+            categories[category] = scores[category]
+        else:
+            del categories[category]
+    # build and print tree
+    tree = OrderedDict()
+    for category, prediction in categories.most_common(len(categories)):
+        name = '{} ~ {}'.format(category.name, prediction)
+        children = OrderedDict()
+        for subcategory, prediction in subcategories.items():
+            if subcategory.parent == category:
+                children['{} ~ {}'.format(subcategory.name, prediction)] = dict()  # noqa
+        tree[name] = children
+    out = dict(similarity=tree)
+    print(LeftAligned()(out))
 
 
 if __name__ == '__main__':
@@ -644,6 +711,8 @@ if __name__ == '__main__':
     elif args.get('v3'):
         if args.get('train'):
             v3_train(args.get('INPUT'))
+        if args.get('estimate'):
+            v3_estimate(args.get('INPUT'))
     elif args.get('v2'):
         if args.get('prepare'):
             v2_prepare(args.get('INPUT'), args.get('OUTPUT'))
