@@ -1,142 +1,66 @@
-# sensimark -- get a sens of it
+# sensimark -- get a sense of it
 
 sensimark goal is to give you an idea of what the text is about.
 
-**It's not evaluated. It gives sensible results but I am not sure it's
-the right approach**
 
 # What?
 
 Given a text it return dictionary made of wikipedia categories, e.g.:
 
-```python
-out = sensimark("""Peter Hintjens wrote about the relation between technology and culture.
-Without using a scientifical tone of state-of-the-art review of the anthroposcene antropology,
-he gives a fair amount of food for thought. According to Hintjens, technology is doomed to
-become cheap. As matter of fact, intelligence tools will become more and more accessible which
-will trigger a revolution to rebalance forces in society.""")
-
-for category, score in out:
-    print('{} ~ {}'.format(category, score))
+```
+$ $ curl https://github.com/amirouche/sensimark | python wikimark.py v3 estimate level3/
 ```
 
 The above program will output something like that:
 
 ```python
-Art ~ 0.2
-Science ~ 0.8
-Society ~ 0.4
+sensimark/level3/Health, medicine and disease  ~  -1.2806567221295668
+sensimark/level3/Arts  ~  -1.0704664829367938
+sensimark/level3/Everyday life  ~  -0.8661099064382237
+sensimark/level3/Geography  ~  -0.7565684475124224
+sensimark/level3/Mathematics  ~  -0.5093076598042084
+sensimark/level3/History  ~  -0.46668539628320677
+sensimark/level3/Philosophy and religion  ~  0.06943753800317543
+sensimark/level3/Society and social sciences  ~  0.8778890366427974
+sensimark/level3/People  ~  0.8894349729047532
+sensimark/level3/Science  ~  1.5233850644220377
+sensimark/level3/Technology  ~  1.5896480031316587
 ```
-
-That is the goal of the project but were are not there yet or are we
-pushing forward the final frontier.
 
 # Getting started
 
-## Detecting language
-
-To get started we will use the algorithm to detect language:
-
-```bash
-$ pipenv shell
-$ pipenv install --dev
-$ ./wikimark.py process data/
-$ curl https://fr.wikipedia.org/wiki/Science | ./wikimark.py guess data/
+```
+$ git clone https://github.com/amirouche/sensimark
+$ cd sensimark && pipenv install --dev && pipenv shell
+$ python -m spacy download en_core_web_lg
+$ python wikimark.py v3 train level3/
 ```
 
-Here is the output:
+Then run something like the following:
 
-```bash
-(sensimark-P02TGHgF) amirouche@ubujul18:~/src/python/sensimark$ curl https://fr.wikipedia.org/wiki/Science | ./wikimark.py guess data/
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-100  609k  100  609k    0     0   743k      0 --:--:-- --:--:-- --:--:--  742k
-similarity
- +-- wikipedia ~ 0.4999974735532797
-     +-- french ~ 0.9002363895619202
-     +-- english ~ 0.09975855754463928
 ```
+$ curl https://hintjens.gitbooks.io/culture-empire/content/chapter6.html | python wikimark.py v3 estimate level3/
 
-## Detecting Category and Sub-Category
-
-Based Wikipedia Vital Articles Level 3 Categories and Sub-Categories.
-
-```bash
-$ pipenv shell
-$ pipenv install  --dev
-$ mkdir build
-$ wikimark.py collect build
-$ wikimark.py process build
-$ curl https://github.com/cultureandempire/cultureandempire.github.io/blob/master/culture.md | ./wikimark.py guess build/
-similarity
- +-- Technology ~ 0.09932770275501317
- |   +-- General ~ 0.09932770275501317
- +-- Science ~ 0.09905069171042175
- |   +-- General ~ 0.09905069171042175
- +-- Geography ~ 0.09897996204391411
- |   +-- Continents and regions ~ 0.09914627336640339
- |   +-- General ~ 0.09881365072142484
- +-- Mathematics ~ 0.09897542847422805
- |   +-- Other ~ 0.09911568655298664
- |   +-- Arithmetic ~ 0.09883517039546945
- +-- Society and social sciences ~ 0.09886767613461538
- |   +-- Social issues ~ 0.09886767613461538
- +-- History ~ 0.09886377525104235
-     +-- General ~ 0.09893293240770612
-     +-- History by subject matter ~ 0.09884456012696491
-     +-- Post-classical history ~ 0.09881383321845605
-$ curl https://en.wikipedia.org/wiki/Personal_knowledge_base | ./wikimark.py guess build
-similarity
- +-- Mathematics ~ 0.0993756246619002
- |   +-- Other ~ 0.09944645420034719
- |   +-- Arithmetic ~ 0.0993047951234532
- +-- History ~ 0.09932122839459406
- |   +-- Post-classical history ~ 0.09939344609873874
- |   +-- History by subject matter ~ 0.0992490106904494
- +-- Technology ~ 0.09930023484792067
- |   +-- Computing and information technology ~ 0.09940246773954364
- |   +-- General ~ 0.09919800195629769
- +-- Geography ~ 0.099271977035576
- |   +-- General ~ 0.09935064012068967
- |   +-- Continents and regions ~ 0.09919331395046231
- +-- Society and social sciences ~ 0.09916934772113263
-     +-- General ~ 0.09918826756048632
-     +-- Social issues ~ 0.09915042788177894
-$ curl https://en.wikipedia.org/wiki/Age_of_Enlightenment | ./wikimark.py guess build
-similarity
- +-- History ~ 0.09939241274306507
- |   +-- Modern history ~ 0.10042636927477488
- |   +-- History by subject matter ~ 0.09930107973217772
- |   +-- History by region ~ 0.09911410256819446
- |   +-- General ~ 0.0987280993971132
- +-- Geography ~ 0.09891518376351204
- |   +-- Continents and regions ~ 0.0989354199303044
- |   +-- General ~ 0.09889494759671967
- +-- Science ~ 0.09889482066567144
- |   +-- General ~ 0.09889482066567144
- +-- Technology ~ 0.09871997655793871
- |   +-- General ~ 0.09871997655793871
- +-- People ~ 0.09870483339781669
- |   +-- Mathematicians ~ 0.09870483339781669
- +-- Arts and culture ~ 0.09867058277473856
-     +-- Literature ~ 0.09867058277473856
+sensimark/level3/Arts  ~  -1.2370657629033888
+sensimark/level3/Health, medicine and disease  ~  -1.061391644389691
+sensimark/level3/Mathematics  ~  -0.8448657596048442
+sensimark/level3/Everyday life  ~  -0.3054167581524906
+sensimark/level3/History  ~  -0.25864448035539783
+sensimark/level3/Philosophy and religion  ~  -0.10844689359787853
+sensimark/level3/People  ~  -0.07366867356878538
+sensimark/level3/Geography  ~  0.08083613643794024
+sensimark/level3/Science  ~  0.17233510277604044
+sensimark/level3/Technology  ~  1.1840206286289219
+sensimark/level3/Society and social sciences  ~  2.452308104729575
 ```
-
-You can also use your own corpus.
 
 # How?
 
-sensimark use [gensim](https://radimrehurek.com/gensim/)
-and [scikit-learn](https://scikit-learn.org/).
-
-- A Doc2Vec embedding is built with the whole corpus.
-- Regression models for each subcategory is built using the Doc2Vec
-  embedding of the related paragraphs of each documents using
-  1-vs-other strategy.
-
-The `wikimark.py guess` command will predict the score of the input
-document against each subcategory regression models.
+- First, Infer vectors from paragraph extracted from html with spacy
+- Then, do a regression using scikit-learn's `SGDRegressor` again each
+  category.
+- Eventually, predict the probability that new documents fit into the categories
 
 # Who?
 
-[Amirouche](mailto:amirouche@hypermove.net)
+[Amirouche](mailto:amirouche@hyper.dev)
