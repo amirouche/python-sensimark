@@ -614,7 +614,7 @@ def v3_train(path):
                 X.append(paragraph.vector)
     log.info('train global estimator')
     # train the estimator on all nodes aka. global_estimator
-    global_estimator = SGDClassifier(loss="log", penalty="l2", max_iter=5)
+    global_estimator = SGDClassifier(loss="log", penalty="l2", max_iter=50)
     global_estimator.fit(X, y)
     with (output / 'global.model').open('wb') as f:
         pickle.dump(global_estimator, f)
